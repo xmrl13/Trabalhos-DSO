@@ -3,3 +3,4 @@
 17/10 - banheira = jacuzzi (tipo quarto) 
 17/10 - classe quarto, metodos com identificadores de tipos
 17/10 - precisa controlador quarto  | quartos independe do quartos? manter a lista (v)
+17/10 - diagrama de andar esta errado. Falta o 'adiciona quarto' pois é uma lista 
