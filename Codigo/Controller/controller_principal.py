@@ -1,4 +1,9 @@
-
+from controller_andar import ControllerAndar
+from controller_clientes import ControllerClientes
+from controller_funcionarios import ControllerFuncionarios
+from controller_quarto import ControllerQuarto
+from controller_reserva import ControllerReserva
+from controller_tipo_quarto import ControllerTipoQuarto
 
 class ControllerPrincipal:
     def __init__(self):
