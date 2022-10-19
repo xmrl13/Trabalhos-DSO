@@ -1,6 +1,6 @@
 from controller_principal import ControllerPrincipal
-from View.tela_clientes import TelaCliente
-from Model.cliente import   Cliente
+from view.tela_clientes import TelaCliente
+from model.cliente import   Cliente
 
 class ControllerClientes:
     def __init__(self, controller_principal):
