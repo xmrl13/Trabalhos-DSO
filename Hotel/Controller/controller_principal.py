@@ -17,8 +17,11 @@ class ControllerPrincipal:
         self.__controller_andar = ControllerAndar(self)
         self.__tela_principal = TelaPrincipal()
     
-    def cadastra_funcionario(self):
+    def inicializa_funcionario(self):
         self.__controller_funcionarios.abre_tela()
+        
+    def inicializa_cliente(self):
+        self.__controller_clientes.abre_tela()
 
     def encerra_sistema(self):
         exit(0)
@@ -28,9 +31,9 @@ class ControllerPrincipal:
     
     
     def abre_tela(self):
-        lista_opcoes = {1: self.cadastra_funcionario}
+        lista_opcoes = {1: self.inicializa_funcionario, 2: self.inicializa_cliente}
 
         while True:
-            opcao_escolhida = self.__tela_principal.tela_opcoes()
+            opcao_escolhida = self.__tela_principal.abre_tela()
             funcao_escolhida = lista_opcoes[opcao_escolhida]
             funcao_escolhida()

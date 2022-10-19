@@ -1,7 +1,7 @@
 
 
-class TelaCliente:
-    def mostra_tela_opcoes(self):
+class TelaCliente():
+    def abre_tela(self):
         print(20 * '*')
         print(' CLIENTES ')
         print(20 * '*')
@@ -11,14 +11,9 @@ class TelaCliente:
         print('4 - Alterar Cliente')
         print('0 - Voltar')
         # É necessario revisar se este try except esta correto
-        try:
-            opcao = int(input('Digite uma opção: '))
-            return opcao
-        except:
-            print('Opcão inválida! ')
-            opcao = int(input('Tente novamente com uma opção válida: '))
-            return opcao
-        
+        opcao= int(input('Digite uma opção: '))
+        return opcao
+
     def pega_dados_cliente(self):
         print('CADASTRO DO CLIENTE')
         nome_cliente = input('Nome do cliente: ')

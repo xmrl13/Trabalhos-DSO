@@ -1,6 +1,6 @@
 
 class TelaFuncionarios():
-	def tela_opcoes(self):
+	def abre_tela(self):
 		print("------------ FUNCIONARIOS-----------")	
 		print(" Escolha a opçao ")
 		print("1 - Incluir funcionario")
@@ -9,6 +9,6 @@ class TelaFuncionarios():
 		print("4 - Busca funcionario"  )
 		print("0 - Retornar")
 	
-		opcao = int(input("Escolha a opcao"))
+		opcao = int(input("Escolha a opcao: "))
 	
 		return opcao
