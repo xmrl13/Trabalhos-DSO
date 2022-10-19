@@ -1,6 +1,6 @@
-from controller.controller_principal import ControllerPrincipal
+from controller_principal import ControllerPrincipal
 from view.tela_funcionarios import TelaFuncionarios
-
+from model.funcionario import Funcionario
 
 class ControllerFuncionarios:
     def __init__(self, controller_principal):
