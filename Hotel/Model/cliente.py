@@ -1,10 +1,11 @@
+from datetime import date, datetime
 from model.pessoa import Pessoa
 
 class Cliente(Pessoa):
 
-	def __init__(self, cpf: str, e_mail: str, telefone:str):
-		super().__init__()
-		self.__cpf = cpf 
+	def __init__(self, nome: str, data_nascimento: str , cpf: str, e_mail: str, telefone:str):
+		super().__init__(nome, data_nascimento)
+		self.__cpf = cpf
 		self.__e_mail = e_mail
 		self.__telefone = telefone
 
@@ -29,5 +30,5 @@ class Cliente(Pessoa):
 		return self.__telefone 
 
 	@telefone.setter
-	def cpf(self,telefone):
+	def telefone(self,telefone):
 		self.__telefone = telefone

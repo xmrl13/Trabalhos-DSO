@@ -1,6 +1,7 @@
 
 
-class TelaCliente():
+class TelaCliente:
+
     def abre_tela(self):
         print(20 * '*')
         print(' CLIENTES ')
@@ -8,10 +9,10 @@ class TelaCliente():
         print('1 - Cadastrar Cliente')
         print('2 - Alterar Cliente')
         print('3 - Remover Cliente')
-        print('4 - Alterar Cliente')
+        print('4 - Busca Cliente')
+        print('5 - Lista Cliente')
         print('0 - Voltar')
-        # É necessario revisar se este try except esta correto
-        opcao= int(input('Digite uma opção: '))
+        opcao = int(input('Digite uma opção: '))
         return opcao
 
     def pega_dados_cliente(self):
@@ -36,4 +37,3 @@ class TelaCliente():
         print(f"CPF : {dados_cliente['cpf_cliente']}")
         print(f"Email : {dados_cliente['email_cliente']}")
         print(f"Fone : {dados_cliente['fone_cliente']}")
-        

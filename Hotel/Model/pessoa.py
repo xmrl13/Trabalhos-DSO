@@ -4,7 +4,7 @@ from datetime import date
 class Pessoa(ABC):
 
 	@abstractmethod
-	def __init__(self, nome : str, data_nascimento: date):
+	def __init__(self, nome : str, data_nascimento: str):
 		self.__nome = nome
 		self.__data_nascimento = data_nascimento
 		

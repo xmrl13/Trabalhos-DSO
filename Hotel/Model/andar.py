@@ -28,5 +28,5 @@ class Andar:
 	def remove_quarto(self, quarto: Quarto ):   # deve estar no controlador tb e se remover e add em um, deve ter no outro
 		for quarto_1 in self.__quartos:
 			if quarto_1 == quarto:
-				self.__quartos.pop(quarto)
+				self.__quartos.pop(quarto_1) # Renomeei o indice do pop, estava: .pop(quarto), renomeei para .pop(quarto_1)
 

@@ -5,8 +5,8 @@ from model.cliente import Cliente
 class ControllerClientes:
     def __init__(self, controller_principal):
         self.__controller_principal = controller_principal
+        self.__tela_clientes = TelaCliente()
         self.__clientes = []
-        self.__tela_clientes = TelaCliente
 
     
     def inclui_cliente(self):
@@ -27,7 +27,10 @@ class ControllerClientes:
         for cliente in self.__clientes:
             if cliente.cpf_cliente == cpf:
                 return cliente
-    
+                
+    def retornar(self):
+        self.__controller_principal.abre_tela()
+
     def lista_cliente(self):
         for cliente in self.__clientes:
             dados_cliente = {
@@ -40,11 +43,8 @@ class ControllerClientes:
             self.__tela_clientes.mostra_cliente(dados_cliente)
     
     def abre_tela(self):
-        lista_opcoes = {
-                1: self.inclui_cliente,
-                2: self.altera_cliente,
-                3: self.excluir_cliente,
-                4: self.busca_cliente
-            }
+        lista_opcoes = {1: self.inclui_cliente, 2: self.altera_cliente, 3: self.excluir_cliente, 4: self.busca_cliente, 5: self.lista_cliente, 0: self.retornar}
+
         while True:
-            lista_opcoes[self.__tela_clientes.abre_tela()]()
+            opcao = self.__tela_clientes.abre_tela()
+            lista_opcoes[opcao]()

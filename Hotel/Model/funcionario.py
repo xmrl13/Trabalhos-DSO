@@ -2,8 +2,8 @@ from model.pessoa import Pessoa
 
 class Funcionario(Pessoa):
 
-	def __init__(self, cracha: int):
-		super().__init__()
+	def __init__(self, nome: str, data_nascimento: str, cracha: int):
+		super().__init__(nome, data_nascimento)
 		self.__cracha = cracha
 	
 	@property
