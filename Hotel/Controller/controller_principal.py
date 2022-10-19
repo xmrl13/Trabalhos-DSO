@@ -14,3 +14,21 @@ class ControllerPrincipal:
         self.__controller_reserva = ControllerReserva(self)
         self.__controller_clientes = ControllerClientes(self)
         self.__controller_andar = ControllerAndar(self)
+    
+    def cadastra_funcionario(self):
+        self.__controller_funcionarios.abre_tela()
+
+    def encerra_sistema(self):
+        exit(0)
+
+    def inicializa_sistema(self):
+        self.abre_tela()
+    
+    
+    def abre_tela(self):
+        lista_opcoes = {1: self.cadastra_funcionario}
+
+        while True:
+            opcao_escolhida = self.__tela_sistema.tela_opcoes()
+            funcao_escolhida = lista_opcoes[opcao_escolhida]
+            funcao_escolhida()
