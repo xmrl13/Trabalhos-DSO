@@ -1,4 +1,4 @@
-from tipo_quarto import TipoQuarto
+from model.tipo_quarto import TipoQuarto
 
 class Quarto:
 	def __init__(self, numero_do_quarto: int, valor_diaria: float, tipo: TipoQuarto):

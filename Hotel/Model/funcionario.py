@@ -1,6 +1,6 @@
-from pessoa import Pessoa
+from model.pessoa import Pessoa
 
-class Funcionario:
+class Funcionario(Pessoa):
 
 	def __init__(self, cracha: int):
 		super().__init__()

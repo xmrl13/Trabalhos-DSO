@@ -1,6 +1,6 @@
 from sqlite3 import Date
-from quarto import Quarto
-from cliente import Cliente
+from model.quarto import Quarto
+from model.cliente import Cliente
 
 
 class Reserva:

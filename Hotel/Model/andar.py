@@ -1,4 +1,4 @@
-from quarto import Quarto
+from model.quarto import Quarto
 
 class Andar:
 	def __init__(self, numero: int):

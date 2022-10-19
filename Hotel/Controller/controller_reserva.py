@@ -1,4 +1,4 @@
-from controller_principal import ControllerPrincipal
+
 
 class ControllerReserva:
     def __init__(self, controller_principal):

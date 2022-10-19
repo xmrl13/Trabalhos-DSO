@@ -1,4 +1,4 @@
-from controller_principal import ControllerPrincipal
+
 
 class ControllerTipoQuarto:
     def __init__(self, controller_principal):

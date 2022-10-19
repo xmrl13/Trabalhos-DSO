@@ -1,4 +1,4 @@
-from controller_principal import ControllerPrincipal
+
 from view.tela_clientes import TelaCliente
 from model.cliente import   Cliente
 
