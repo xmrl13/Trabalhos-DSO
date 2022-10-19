@@ -1,5 +1,5 @@
-from controller_principal import ControllerPrincipal
-from View.tela_funcionarios import TelaFuncionarios
+from controller.controller_principal import ControllerPrincipal
+from view.tela_funcionarios import TelaFuncionarios
 
 
 class ControllerFuncionarios:
