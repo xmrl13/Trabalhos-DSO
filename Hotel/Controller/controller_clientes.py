@@ -40,10 +40,14 @@ class ControllerClientes:
             self.__tela_clientes.mostra_cliente(dados_cliente)
     
     def mostra_tela_opcoes(self):
-        while True:
-            opcoes = {
+        opcoes = {
                 1: self.inclui_cliente,
                 2: self.altera_cliente,
                 3: self.excluir_cliente,
                 4: self.busca_cliente
             }
+        while True:
+            opcao = self.__tela_clientes.mostra_tela_opcoes()
+            if opcao == 0:
+                break
+            opcoes[opcao]()
