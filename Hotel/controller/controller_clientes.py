@@ -1,4 +1,5 @@
 
+from model.pessoa import Pessoa
 from view.tela_clientes import TelaCliente
 from model.cliente import Cliente
 
@@ -11,11 +12,12 @@ class ControllerClientes:
     
     def inclui_cliente(self):
         dados_cliente = self.__tela_clientes.pega_dados_cliente()
-        cliente = Cliente(dados_cliente['nome_cliente'],
+        self.__clientes.append(Cliente(dados_cliente['nome_cliente'],
         dados_cliente['data_nascimento_cliente'],
         dados_cliente['cpf_cliente'],
         dados_cliente['email_cliente'],
-        dados_cliente['fone_cliente'])
+        dados_cliente['fone_cliente']))
+
 
     def altera_cliente(self):
         ...
@@ -34,11 +36,11 @@ class ControllerClientes:
     def lista_cliente(self):
         for cliente in self.__clientes:
             dados_cliente = {
-                'nome_cliente': cliente.nome_cliente,
-                'data_nascimento_cliente': cliente.data_nascimento_,
-                'cpf_cliente': cliente.cpf_cliente,
-                'email_cliente': cliente.email_cliente,
-                'fone_cliente': cliente.fone_cliente
+                'data_nascimento_cliente': cliente.data_nascimento,
+                'nome_cliente': cliente.nome,
+                'cpf_cliente': cliente.cpf,
+                'email_cliente': cliente.email,
+                'fone_cliente': cliente.telefone
             }
             self.__tela_clientes.mostra_cliente(dados_cliente)
     

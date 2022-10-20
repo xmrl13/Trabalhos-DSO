@@ -18,7 +18,7 @@ class TelaCliente:
     def pega_dados_cliente(self):
         print('CADASTRO DO CLIENTE')
         nome_cliente = input('Nome do cliente: ')
-        data_nascimento_cliente = input('Data do cliente: ')
+        data_nascimento_cliente = input('Data de nascimento do cliente: ')
         cpf_cliente = input('CPF do cliente: ')
         email_cliente = input('Email do cliente: ')
         fone_cliente = input('Telefone do cliente: ')
@@ -31,9 +31,10 @@ class TelaCliente:
         }
     
     def mostra_cliente(self, dados_cliente):
-        print('CLIENTE')
+        print(20 * '*')
         print(f"Nome : {dados_cliente['nome_cliente']}")
         print(f"Data de Nascimento : {dados_cliente['data_nascimento_cliente']}")
         print(f"CPF : {dados_cliente['cpf_cliente']}")
         print(f"Email : {dados_cliente['email_cliente']}")
         print(f"Fone : {dados_cliente['fone_cliente']}")
+        print(20 * '*')

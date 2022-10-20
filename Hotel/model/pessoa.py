@@ -4,7 +4,7 @@ from datetime import date
 class Pessoa(ABC):
 
 	@abstractmethod
-	def __init__(self, nome : str, data_nascimento: str):
+	def __init__(self, nome : str, data_nascimento: str ):
 		self.__nome = nome
 		self.__data_nascimento = data_nascimento
 		
@@ -17,11 +17,11 @@ class Pessoa(ABC):
 		self.__nome = nome
 	
 	@property
-	def data(self):
+	def data_nascimento(self):
 		return self.__data_nascimento
 	
-	@nome.setter
-	def nome(self,data_nascimento):
+	@data_nascimento.setter
+	def data_nascimento(self,data_nascimento):
 		self.__data_nascimento = data_nascimento
 	
 
