@@ -25,9 +25,10 @@ class ControllerClientes:
     def excluir_cliente(self):
         ...
 
-    def busca_cliente(self, cpf): #get cliente by CPF
+    def busca_cliente_por_cpf(self, cpf_cliente): #get cliente by CPF
         for cliente in self.__clientes:
-            if cliente.cpf_cliente == cpf:
+            if cpf_cliente.cpf == cpf_cliente:
+                print(cliente) #Print para ver se o cliente está sendo localizados
                 return cliente
                 
     def retornar(self):
@@ -45,7 +46,7 @@ class ControllerClientes:
             self.__tela_clientes.mostra_cliente(dados_cliente)
     
     def abre_tela(self):
-        lista_opcoes = {1: self.inclui_cliente, 2: self.altera_cliente, 3: self.excluir_cliente, 4: self.busca_cliente, 5: self.lista_cliente, 0: self.retornar}
+        lista_opcoes = {1: self.inclui_cliente, 2: self.altera_cliente, 3: self.excluir_cliente, 4: self.busca_cliente_por_cpf, 5: self.lista_cliente, 0: self.retornar}
 
         while True:
             opcao = self.__tela_clientes.abre_tela()

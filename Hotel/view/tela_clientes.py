@@ -1,5 +1,4 @@
-
-
+from controller.controller_clientes import ControllerClientes
 class TelaCliente:
 
     def abre_tela(self):
@@ -30,6 +29,14 @@ class TelaCliente:
             'fone_cliente': fone_cliente
         }
     
+    def mostra_cliente_por_cpf(self):
+        print(20 * '*')
+        print('BUSCA DE CLIENTE PELO CPF!')
+        print(20 * '*')
+        cpf_cliente = input('Digite o CPF do cliente a ser localizado: ')
+
+        return cpf_cliente
+
     def mostra_cliente(self, dados_cliente):
         print(20 * '*')
         print(f"Nome : {dados_cliente['nome_cliente']}")
