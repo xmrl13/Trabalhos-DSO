@@ -1,4 +1,5 @@
 
+from queue import Empty
 from model.pessoa import Pessoa
 from view.tela_clientes import TelaCliente
 from model.cliente import Cliente
@@ -25,12 +26,19 @@ class ControllerClientes:
     def excluir_cliente(self):
         ...
 
-    def busca_cliente_por_cpf(self, cpf_cliente): #get cliente by CPF
+    def busca_cliente_por_cpf(self): #get cliente by CPF
+        cpf = self.__tela_clientes.pega_cliente_por_cpf()
+        aux = False
         for cliente in self.__clientes:
-            if cpf_cliente.cpf == cpf_cliente:
-                print(cliente) #Print para ver se o cliente está sendo localizados
-                return cliente
-                
+            if cpf == cliente.cpf:
+                aux = True
+                self.__tela_clientes.mostra_cliente_por_cpf(cliente, aux)
+            else:
+                aux = False
+                self.__tela_clientes.mostra_cliente_por_cpf(cliente, aux)
+
+
+
     def retornar(self):
         self.__controller_principal.abre_tela()
 
@@ -46,7 +54,8 @@ class ControllerClientes:
             self.__tela_clientes.mostra_cliente(dados_cliente)
     
     def abre_tela(self):
-        lista_opcoes = {1: self.inclui_cliente, 2: self.altera_cliente, 3: self.excluir_cliente, 4: self.busca_cliente_por_cpf, 5: self.lista_cliente, 0: self.retornar}
+        lista_opcoes = {1: self.inclui_cliente, 2: self.altera_cliente, 3: self.excluir_cliente,
+         4: self.busca_cliente_por_cpf, 5: self.lista_cliente, 0: self.retornar}
 
         while True:
             opcao = self.__tela_clientes.abre_tela()

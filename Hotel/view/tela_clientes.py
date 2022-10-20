@@ -1,4 +1,6 @@
-from controller.controller_clientes import ControllerClientes
+from queue import Empty
+
+
 class TelaCliente:
 
     def abre_tela(self):
@@ -28,14 +30,24 @@ class TelaCliente:
             'email_cliente': email_cliente,
             'fone_cliente': fone_cliente
         }
-    
-    def mostra_cliente_por_cpf(self):
-        print(20 * '*')
-        print('BUSCA DE CLIENTE PELO CPF!')
-        print(20 * '*')
-        cpf_cliente = input('Digite o CPF do cliente a ser localizado: ')
 
+    def pega_cliente_por_cpf(self):
+        cpf_cliente = input('Digite seu CPF: ')
         return cpf_cliente
+
+    def mostra_cliente_por_cpf(self, cliente, aux):
+        print(20 * '*')
+        if aux is False:
+            print('Cliente não encontrado!')
+        else:
+            print('Cliente encontrado!')
+            print(f'Nome: {cliente.nome}')
+            print(f'Data de nascimento: {cliente.data_nascimento}')
+            print(f'CPF: {cliente.cpf}')
+            print(f'Email: {cliente.email}')
+            print(f'Fone: {cliente.telefone}')
+  
+        print(20 * '*')
 
     def mostra_cliente(self, dados_cliente):
         print(20 * '*')
