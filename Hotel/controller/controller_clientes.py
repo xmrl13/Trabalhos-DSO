@@ -28,14 +28,12 @@ class ControllerClientes:
 
     def busca_cliente_por_cpf(self): #get cliente by CPF
         cpf = self.__tela_clientes.pega_cliente_por_cpf()
-        aux = False
         for cliente in self.__clientes:
             if cpf == cliente.cpf:
-                aux = True
-                self.__tela_clientes.mostra_cliente_por_cpf(cliente, aux)
+                self.__tela_clientes.mostra_cliente_por_cpf(cliente)
             else:
-                aux = False
-                self.__tela_clientes.mostra_cliente_por_cpf(cliente, aux)
+                cliente = None
+                self.__tela_clientes.mostra_cliente_por_cpf(cliente)
 
 
 
