@@ -32,12 +32,12 @@ class TelaCliente:
         }
 
     def pega_cliente_por_cpf(self):
-        cpf_cliente = input('Digite seu CPF: ')
+        cpf_cliente = input('Digite o CPF do cliente: ')
         return cpf_cliente
 
-    def mostra_cliente_por_cpf(self, cliente):
+    def mostra_cliente_por_cpf(self, cliente, aux):
         print(20 * '*')
-        if cliente == None:
+        if aux == False:
             print('Cliente não encontrado!')
         else:
             print('Cliente encontrado!')

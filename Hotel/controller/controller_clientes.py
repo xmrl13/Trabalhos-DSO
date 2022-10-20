@@ -1,5 +1,6 @@
 
 from queue import Empty
+from model import cliente
 from model.pessoa import Pessoa
 from view.tela_clientes import TelaCliente
 from model.cliente import Cliente
@@ -24,16 +25,21 @@ class ControllerClientes:
         ...
     
     def excluir_cliente(self):
-        ...
+        self.lista_cliente
+        cliente = self.busca_cliente_por_cpf()
+        self.__clientes.remove(cliente)
+        self.lista_cliente
 
     def busca_cliente_por_cpf(self): #get cliente by CPF
         cpf = self.__tela_clientes.pega_cliente_por_cpf()
+        aux = False
         for cliente in self.__clientes:
             if cpf == cliente.cpf:
-                self.__tela_clientes.mostra_cliente_por_cpf(cliente)
+                aux = True
+                self.__tela_clientes.mostra_cliente_por_cpf(cliente, aux)
+                return cliente
             else:
-                cliente = None
-                self.__tela_clientes.mostra_cliente_por_cpf(cliente)
+                self.__tela_clientes.mostra_cliente_por_cpf(cliente, aux)
 
 
 
