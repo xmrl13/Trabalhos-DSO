@@ -31,13 +31,21 @@ class TelaCliente:
             'fone_cliente': fone_cliente
         }
 
+    def mostr_excluido(self, cliente):
+        if cliente is False:
+            print(20 * '*')
+            print('Cliente não encontrado!')
+            print(20 * '*')    
+        if cliente is True:
+            print('Cliente excluido com sucesso')
+
     def pega_cliente_por_cpf(self):
         cpf_cliente = input('Digite o CPF do cliente: ')
         return cpf_cliente
 
     def mostra_cliente_por_cpf(self, cliente, aux):
         print(20 * '*')
-        if aux == False:
+        if aux is False:
             print('Cliente não encontrado!')
         else:
             print('Cliente encontrado!')
