@@ -50,4 +50,6 @@ class ControllerFuncionarios:
             0: self.retornar
         }
         while True:
-            lista_opcoes[self.__tela_funcionarios.abre_tela()]()
+            lista_opcoes[self.__tela_funcionarios.abre_tela()]()   
+        #
+             

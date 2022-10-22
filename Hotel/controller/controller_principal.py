@@ -37,3 +37,4 @@ class ControllerPrincipal:
             opcao_escolhida = self.__tela_principal.abre_tela()
             funcao_escolhida = lista_opcoes[opcao_escolhida]
             funcao_escolhida()
+            #

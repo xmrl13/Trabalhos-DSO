@@ -16,3 +16,4 @@ class ControllerTipoQuarto:
 
     def busca_tipos_quarto(self):
         pass
+    #

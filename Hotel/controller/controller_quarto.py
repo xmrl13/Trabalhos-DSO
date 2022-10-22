@@ -16,3 +16,4 @@ class ControllerQuarto:
 
     def busca_quarto(self):
         pass
+    #
