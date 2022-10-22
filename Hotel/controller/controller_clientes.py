@@ -23,7 +23,18 @@ class ControllerClientes:
 
 
     def altera_cliente(self):
-        ...
+        cpf = self.__tela_clientes.pega_cliente_por_cpf()
+        for cliente in self.__clientes:
+            if cpf == cliente.cpf:
+                cliente_atualizado = self.__tela_clientes.pega_dados_cliente()
+                cliente.nome = cliente_atualizado['nome_cliente']
+                cliente.data_nascimento = cliente_atualizado['data_nascimento_cliente']
+                cliente.cpf = cliente_atualizado['cpf_cliente']
+                cliente.email = cliente_atualizado['email_cliente']
+                cliente.telefone = cliente_atualizado['fone_cliente']
+                self.__tela_clientes.cliente_alterado()
+                return
+        self.__tela_clientes.cliente_encontrado()
     
     def excluir_cliente(self):
         if self.lista_cliente is None: 
@@ -42,9 +53,16 @@ class ControllerClientes:
         cpf = self.__tela_clientes.pega_cliente_por_cpf()
         for cliente in self.__clientes:
             if cpf == cliente.cpf:
-                self.__tela_clientes.mostra_cliente_por_cpf(cliente)
+                dados_cliente = {
+                    'nome_cliente': cliente.nome,
+                    'data_nascimento_cliente': cliente.data_nascimento,
+                    'cpf_cliente': cliente.cpf,
+                    'email_cliente': cliente.email,
+                    'fone_cliente': cliente.telefone
+                    }
+                self.__tela_clientes.cliente_encontrado()
+                self.__tela_clientes.mostra_cliente(dados_cliente)
                 return cliente
-            
             
         self.__tela_clientes.cliente_não_encontrado()
 
