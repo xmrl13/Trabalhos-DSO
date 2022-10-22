@@ -23,6 +23,15 @@ class ControllerFuncionarios:
     def busca_funcionario(self):
         pass
 
+    def lista_funcionario(self):
+        for funcionario in self.__funcionarios:
+            dados_funcionario = {
+                'data_nascimento_funcionario': funcionario.data_nascimento,
+                'nome_funcionario': funcionario.nome,
+                'numero_do_cracha': funcionario.cracha
+            }
+            self.__tela_funcionarios.mostra_funcionario(dados_funcionario)
+
     def retornar(self):
         self.__controller_principal.abre_tela()
     
@@ -31,7 +40,8 @@ class ControllerFuncionarios:
             1: self.inclui_funcionario, 
             2: self.altera_funcionario, 
             3: self.excluir_funcionario, 
-            4: self.busca_funcionario, 
+            4: self.busca_funcionario,
+            5: self.lista_funcionario, 
             0: self.retornar
         }
         while True:
