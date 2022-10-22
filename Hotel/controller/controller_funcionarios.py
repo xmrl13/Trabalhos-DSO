@@ -15,18 +15,40 @@ class ControllerFuncionarios:
                                                dados_funcionario['cracha_do_funcionario']))
 
     def altera_funcionario(self):
-        pass
+        numero_cracha = self.__tela_funcionarios.pega_funcionario_por_cracha()
+        for funcionario in self.__funcionarios:
+            if funcionario.cracha == numero_cracha:
+                funcionario_atualizado = self.__tela_funcionarios.altera_funcionario()
+                funcionario.nome = funcionario_atualizado['nome_funcionario']
+                funcionario.data_nascimento = funcionario_atualizado['data_nascimento_funcionario']
+                funcionario.cracha = funcionario_atualizado['cracha_do_funcionario']
+                self.__tela_funcionarios.confirma_funcionario()
+                return
+        self.__tela_funcionarios.reclama_funcionario()
 
     def excluir_funcionario(self):
-        self.lista_funcionario()
-        funcionario = self.pega_funcionario_por_cracha()
-        if funcionario in self.__funcionarios:
-            self.__funcionario.remove(funcionario)
-            return
-        self.reclama_funcionario()
+        numero_cracha = self.__tela_funcionarios.pega_funcionario_por_cracha()
+        for funcionario in self.__funcionarios:
+            if funcionario.cracha == numero_cracha:
+                self.__funcionarios.remove(funcionario)
+                self.__tela_funcionarios.confirma_funcionario()
+                return
+
+        self.__tela_funcionarios.reclama_funcionario()
 
     def busca_funcionario(self):
-        pass
+        numero_cracha = self.__tela_funcionarios.pega_funcionario_por_cracha()
+        for funcionario in self.__funcionarios:
+            if funcionario.cracha == numero_cracha:
+                dados_funcionario = {
+                    'nome_funcionario': funcionario.nome,
+                    'data_nascimento_funcionario': funcionario.data_nascimento,
+                    'numero_do_cracha': funcionario.cracha
+                }
+                self.__tela_funcionarios.mostra_funcionario(dados_funcionario)
+                return
+
+        self.__tela_funcionarios.reclama_funcionario()
 
     def lista_funcionario(self):
         for funcionario in self.__funcionarios:
@@ -50,6 +72,5 @@ class ControllerFuncionarios:
             0: self.retornar
         }
         while True:
-            lista_opcoes[self.__tela_funcionarios.abre_tela()]()   
+            lista_opcoes[self.__tela_funcionarios.abre_tela()]()
         #
-             
