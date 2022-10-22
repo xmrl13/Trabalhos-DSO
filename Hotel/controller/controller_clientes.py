@@ -25,38 +25,39 @@ class ControllerClientes:
         ...
     
     def excluir_cliente(self):
-        self.lista_cliente
         cliente = self.busca_cliente_por_cpf()
-        if cliente in self.__clientes:
-            self.__clientes.remove(cliente)
-            self.__tela_clientes.mostr_excluido(True)
-        else: 
-            self.__tela_clientes.mostr_excluido(False)
+        for cliente in self.__clientes:
+            if cliente in self.__clientes:
+                self.__clientes.remove(cliente)
+                self.__tela_clientes.mostra_excluido(True)
+            else: 
+                self.__tela_clientes.reclama_cliente()
 
     def busca_cliente_por_cpf(self): #get cliente by CPF
         cpf = self.__tela_clientes.pega_cliente_por_cpf()
-        aux = False
         for cliente in self.__clientes:
-            if cpf not in cliente.cpf:
-                aux = False
-            else:
-                aux = True
-                self.__tela_clientes.mostra_cliente_por_cpf(cliente, aux)
+            if cpf == cliente.cpf:
+                self.__tela_clientes.mostra_cliente_por_cpf(cliente)
+                return
+            self.__tela_clientes.reclama_cliente()
 
 
     def retornar(self):
         self.__controller_principal.abre_tela()
 
     def lista_cliente(self):
+        if not self.__clientes:
+            print('Sem clientes cadastrados') # Tem que tirar esse print daqui
+
         for cliente in self.__clientes:
-            dados_cliente = {
-                'data_nascimento_cliente': cliente.data_nascimento,
-                'nome_cliente': cliente.nome,
-                'cpf_cliente': cliente.cpf,
-                'email_cliente': cliente.email,
-                'fone_cliente': cliente.telefone
-            }
-            self.__tela_clientes.mostra_cliente(dados_cliente)
+                dados_cliente = {
+            'data_nascimento_cliente': cliente.data_nascimento,
+            'nome_cliente': cliente.nome,
+            'cpf_cliente': cliente.cpf,
+            'email_cliente': cliente.email,
+            'fone_cliente': cliente.telefone
+        }
+                self.__tela_clientes.mostra_cliente(dados_cliente)
     
     def abre_tela(self):
         lista_opcoes = {1: self.inclui_cliente, 2: self.altera_cliente, 3: self.excluir_cliente,
@@ -65,3 +66,8 @@ class ControllerClientes:
         while True:
             opcao = self.__tela_clientes.abre_tela()
             lista_opcoes[opcao]()
+
+
+'''
+Classe enum para tipos de quartos
+'''
