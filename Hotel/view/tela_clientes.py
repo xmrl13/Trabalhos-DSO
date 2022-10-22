@@ -34,8 +34,9 @@ class TelaCliente:
     def mostra_excluido(self, cliente):
         if cliente is True:
             print('Cliente excluido com sucesso')
-        else:
-            self.reclama_cliente()
+            return
+
+        self.reclama_cliente()
 
     def pega_cliente_por_cpf(self):
         cpf_cliente = input('Digite o CPF do cliente: ')
@@ -44,6 +45,7 @@ class TelaCliente:
     def mostra_cliente_por_cpf(self, cliente):
         print(20 * '*')
         print('Cliente encontrado!')
+        print(20 * '*')
         print(f'Nome: {cliente.nome}')
         print(f'Data de nascimento: {cliente.data_nascimento}')
         print(f'CPF: {cliente.cpf}')
@@ -59,9 +61,18 @@ class TelaCliente:
         print(f"Email : {dados_cliente['email_cliente']}")
         print(f"Fone : {dados_cliente['fone_cliente']}")
         print(20 * '*')
+    
+    def cliente_removido(self):
+        print(20 * '*')
+        print('Cliente removido!')
+        print(20 * '*')
 
-    def reclama_cliente(self):
+    def sem_cliente_cadastrado(self):
         print(20 * '*')
-        print(" CLIENTE NAO ENCOTRADO")
+        print('Sem clientes cadastrados!')
         print(20 * '*')
-        #
+
+    def cliente_não_encontrado(self):
+        print(20 * '*')
+        print('Cliente não encontrado!')
+        print(20 * '*')

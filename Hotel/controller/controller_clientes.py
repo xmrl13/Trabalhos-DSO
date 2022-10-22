@@ -1,5 +1,6 @@
 
 from queue import Empty
+import re
 from model import cliente
 from model.pessoa import Pessoa
 from view.tela_clientes import TelaCliente
@@ -25,29 +26,35 @@ class ControllerClientes:
         ...
     
     def excluir_cliente(self):
+        if self.lista_cliente is None: 
+            return
         cliente = self.busca_cliente_por_cpf()
-        for cliente in self.__clientes:
-            if cliente in self.__clientes:
-                self.__clientes.remove(cliente)
-                self.__tela_clientes.mostra_excluido(True)
-            else: 
-                self.__tela_clientes.reclama_cliente()
+        if cliente in self.__clientes:
+            self.__clientes.remove(cliente)
+            self.__tela_clientes.cliente_removido()
+            return
+
 
     def busca_cliente_por_cpf(self): #get cliente by CPF
+        if not self.__clientes:
+            self.__tela_clientes.sem_cliente_cadastrado()
+            return None
         cpf = self.__tela_clientes.pega_cliente_por_cpf()
         for cliente in self.__clientes:
             if cpf == cliente.cpf:
                 self.__tela_clientes.mostra_cliente_por_cpf(cliente)
-                return
-            self.__tela_clientes.reclama_cliente()
-
+                return cliente
+            
+            
+        self.__tela_clientes.cliente_não_encontrado()
 
     def retornar(self):
         self.__controller_principal.abre_tela()
 
     def lista_cliente(self):
         if not self.__clientes:
-            print('Sem clientes cadastrados') # Tem que tirar esse print daqui
+            self.__tela_clientes.sem_cliente_cadastrado()
+            return None
 
         for cliente in self.__clientes:
                 dados_cliente = {
