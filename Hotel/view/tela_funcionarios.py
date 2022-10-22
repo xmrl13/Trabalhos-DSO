@@ -14,10 +14,12 @@ class TelaFuncionarios():
         print("0 - Retornar")
 
         opcao = int(input("Escolha a opcao: "))
-        
+
         return opcao
 	   
-		
+    def pega_funcionario_por_cracha(self):
+        cracha_funcionario = input('Digite o Numero de cracha do funcionario: ')
+        return cracha_funcionario
 
     def pega_dados_funcionario(self):
         print('CADASTRO DO FUNCIONARIO')
@@ -37,4 +39,9 @@ class TelaFuncionarios():
         print(
             f"Data de Nascimento : {dados_funcionario['data_nascimento_funcionario']}")
         print(f"Cracha : {dados_funcionario['nuumero_do_cracha']}")
+        print(20 * '*')
+
+    def reclama_funcionario(self):
+        print(20 * '*')
+        print('FUNCIONARIO NAO ENCONTRADO')
         print(20 * '*')
