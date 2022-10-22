@@ -9,7 +9,10 @@ class ControllerFuncionarios:
         
 
     def inclui_funcionario(self):
-        pass
+        dados_funcionario = self.__tela_funcionarios.pega_dados_funcionario()
+        self.__funcionarios.append(Funcionario(dados_funcionario['nome_funcionario'],
+                                       dados_funcionario['data_nascimento_funcionario'],
+                                       dados_funcionario['cracha_do_funcionario']))
 
     def altera_funcionario(self):
         pass
