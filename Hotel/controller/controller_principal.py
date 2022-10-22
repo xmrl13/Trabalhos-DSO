@@ -31,7 +31,7 @@ class ControllerPrincipal:
     
     
     def abre_tela(self):
-        lista_opcoes = {1: self.inicializa_funcionario, 2: self.inicializa_cliente}
+        lista_opcoes = {1: self.inicializa_funcionario, 2: self.inicializa_cliente, 0 : self.encerra_sistema}
 
         while True:
             opcao_escolhida = self.__tela_principal.abre_tela()
