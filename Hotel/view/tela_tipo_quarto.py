@@ -1,0 +1,3 @@
+
+class TelaTipoQuarto:
+	pass
