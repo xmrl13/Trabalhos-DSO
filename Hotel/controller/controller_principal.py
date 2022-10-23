@@ -16,27 +16,26 @@ class ControllerPrincipal:
         self.__controller_clientes = ControllerClientes(self)
         self.__controller_andar = ControllerAndar(self)
         self.__tela_principal = TelaPrincipal()
-    
+
     def inicializa_funcionario(self):
         self.__controller_funcionarios.abre_tela()
-        
+
     def inicializa_cliente(self):
         self.__controller_clientes.abre_tela()
 
     def inicializa_tipo_quarto(self):
-        pass
+        self.__controller_tipo_quarto.abre_tela()
 
     def encerra_sistema(self):
         exit(0)
 
     def inicializa_sistema(self):
         self.abre_tela()
-    
-    
+
     def abre_tela(self):
-        lista_opcoes = {1: self.inicializa_funcionario, 2: self.inicializa_cliente, 
-        3: self.inicializa_tipo_quarto,0 : self.encerra_sistema
-        }
+        lista_opcoes = {1: self.inicializa_funcionario, 2: self.inicializa_cliente,
+                        3: self.inicializa_tipo_quarto, 0: self.encerra_sistema
+                        }
 
         while True:
             opcao_escolhida = self.__tela_principal.abre_tela()
