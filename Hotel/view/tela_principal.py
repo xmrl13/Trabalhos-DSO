@@ -5,7 +5,6 @@ class TelaPrincipal:
         print("Escolha sua opcao")
         print("1 - Funcionarios")
         print("2 - Clientes")
-        print("3 - Tipo Quarto")
         print("0 - Encerrar")
 
         opcao = int(input("Escolha uma opção: "))
