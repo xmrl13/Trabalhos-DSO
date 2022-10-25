@@ -9,7 +9,7 @@ class ControllerQuarto:
         self.__quartos = []
 
     def inclui_quarto(self):
-
+        dados_quarto = self.__tela_quarto.pega_dados_quarto()
         pass
 
     def altera_quarto(self):

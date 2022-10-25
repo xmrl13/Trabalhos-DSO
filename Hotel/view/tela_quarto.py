@@ -1,7 +1,6 @@
 
 class TelaQuarto:
 
-
 	def abre_tela(self):
 		print(20 * '*')
 		print("QUARTOS")
@@ -20,6 +19,21 @@ class TelaQuarto:
 
         	
 
-	def inclui_quarto(self):
-
-		pass
+	def pega_dados_quarto(self):
+		print('CADASTRO DO QUARTO')
+		numero_do_quarto = input('Numero do quarto: ')
+		valor_da_diaria = input('Valor da diaria: ')
+		mobilias = []
+		while True:
+			rest = input('deseja incluir mobilia? [S/N]')
+			if rest == 'N':
+				break
+			descricao = input("Mobilia: ")
+			quantidade = input("Quantidade: ")
+			mobilias.append({'descricao': descricao, 'quantidade':quantidade})
+		return {
+			'numero_do_quarto': numero_do_quarto,
+			'valor_da_diaria': valor_da_diaria,
+			'mobilias': mobilias
+		}
+		#  mobilias['descricao'] = quantidade    -> seta no dicionario
