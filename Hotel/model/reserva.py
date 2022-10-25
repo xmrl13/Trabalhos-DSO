@@ -1,4 +1,5 @@
-from sqlite3 import Date
+import datetime
+import datetimerange
 from model.quarto import Quarto
 from model.cliente import Cliente
 

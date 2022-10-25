@@ -1,6 +1,3 @@
-
-from queue import Empty
-import re
 from model import cliente
 from model.pessoa import Pessoa
 from view.tela_clientes import TelaCliente
@@ -37,7 +34,7 @@ class ControllerClientes:
         self.__tela_clientes.cliente_encontrado()
     
     def excluir_cliente(self):
-        if self.lista_cliente is None: 
+        if self.lista_cliente is None:
             return
         cliente = self.busca_cliente_por_cpf()
         if cliente in self.__clientes:
