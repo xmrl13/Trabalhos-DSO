@@ -1,10 +1,9 @@
 
 
 class Quarto:
-	def __init__(self, numero_do_quarto: int, valor_diaria: float, tipo: TipoQuarto):
+	def __init__(self, numero_do_quarto: int, valor_diaria: float):
 		self.__numero_do_quarto = numero_do_quarto
 		self.__valor_diaria = valor_diaria
-		self.__tipo = tipo
 	
 	@property
 	def numero_do_quarto(self):

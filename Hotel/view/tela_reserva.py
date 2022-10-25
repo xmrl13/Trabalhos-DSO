@@ -13,5 +13,3 @@ class TelaReserva():
         print('0 - Voltar')
         opcao = int(input('Digite uma opção: '))
         return opcao
-
-    

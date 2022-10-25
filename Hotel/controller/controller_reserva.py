@@ -1,13 +1,16 @@
 import datetime
 import datetimerange
-
+from view.tela_reserva import TelaReserva
+from model.reserva import Reserva
 class ControllerReserva:
     def __init__(self, controller_principal):
         self.__controller_principal = controller_principal
         self.__reservas = []
 
     def inclui_reserva(self):
-        pass
+        self.__controller_principal.controller_clientes.lista_clientes()
+        self.__controller_principal.controller_clientes
+
 
     def altera_reserva(self):
         pass
