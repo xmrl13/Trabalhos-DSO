@@ -15,6 +15,18 @@ class ControllerPrincipal:
         self.__controller_andar = ControllerAndar(self)
         self.__tela_principal = TelaPrincipal()
 
+    @property
+    def controller_clientes(self):
+        return self.__controller_clientes
+
+    @property
+    def controller_quarto(self):
+        return self.__controller_quarto
+    
+    @property
+    def controller_andar(self):
+        return self.__controller_andar
+
     def inicializa_funcionario(self):
         self.__controller_funcionarios.abre_tela()
 

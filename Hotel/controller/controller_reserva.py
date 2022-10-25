@@ -9,22 +9,31 @@ class ControllerReserva:
         self.__reservas = []
 
     def inclui_reserva(self):
-        self.__controller_principal.controller_clientes.lista_clientes()
-        cliente = self.__controller_principal.controller_clientes.busca_cliente_por_cpf()
-
-
+        self.__controller_principal.controller_clientes.lista_cliente()
 
     def altera_reserva(self):
-        pass
+        ...
 
     def excluir_reserva(self):
-        pass
+        ...
 
     def busca_reserva(self):
-        pass
+        ...
+
+    def lista_reserva(self):
+        ...
     
+    def retornar(self):
+        self.__controller_principal.abre_tela()
+
     def abre_tela(self):
-        pass
+        lista_opcoes = {1: self.inclui_reserva, 2: self.altera_reserva, 3: self.excluir_reserva,
+         4: self.busca_reserva, 5: self.lista_reserva, 0: self.retornar}
+
+
+        while True:
+            opcao = self.__tela_reserva.abre_tela()
+            lista_opcoes[opcao]()
 
 '''
 from controller_principal import ControllerPrincipal

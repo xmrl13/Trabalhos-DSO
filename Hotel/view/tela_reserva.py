@@ -1,6 +1,7 @@
 
 
 class TelaReserva():
+    
     def abre_tela(self):
         print(5 * '*')
         print('Reserva')

@@ -1,4 +1,3 @@
-from datetime import date, datetime
 from model.pessoa import Pessoa
 
 class Cliente(Pessoa):
