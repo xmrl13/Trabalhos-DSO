@@ -15,5 +15,8 @@ class ControllerAndar:
 		pass
 	
 	def busca_andar(self):
-		pass 
+		pass
+
+	def abre_tela(self):
+		...
 	

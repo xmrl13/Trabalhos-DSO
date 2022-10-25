@@ -1,7 +1,10 @@
 
 
+from model.mobilia import Mobilia
+
+
 class Quarto:
-	def __init__(self, numero_do_quarto: int, valor_diaria: float):
+	def __init__(self, numero_do_quarto: int, valor_diaria: float, mobilia: Mobilia):
 		self.__numero_do_quarto = numero_do_quarto
 		self.__valor_diaria = valor_diaria
 	
@@ -21,11 +24,4 @@ class Quarto:
 	def valor_diaria(self,valor_diaria):
 		self.__valor_diaria = valor_diaria
 	
-	@property
-	def tipo(self):
-		return self.__tipo
-	
-	@tipo.setter
-	def tipo(self,tipo):
-		self.__tipo = tipo
 

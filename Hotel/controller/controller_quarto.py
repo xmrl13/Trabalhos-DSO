@@ -10,7 +10,15 @@ class ControllerQuarto:
 
     def inclui_quarto(self):
         dados_quarto = self.__tela_quarto.pega_dados_quarto()
-        pass
+        mobilia = dados_quarto['mobilias']
+        mobilias = {}
+        for i, x in mobilia:
+            mobilias = {i,x}
+            return mobilias
+        print(mobilias)
+
+        #self.__quartos.append(Quarto(dados_quarto['numero_do_quarto'], dados_quarto['valor_da_diaria'], Mobilia(dados_quarto['mobilia',['descicao']], dados_quarto['mobilia',['quantidade']])))
+        #print(self.__quartos)
 
     def altera_quarto(self):
         pass

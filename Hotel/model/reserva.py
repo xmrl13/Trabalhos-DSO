@@ -1,11 +1,9 @@
-import datetime
-import datetimerange
 from model.quarto import Quarto
 from model.cliente import Cliente
 
 
 class Reserva:
-    def __init__(self, quarto: Quarto, cliente: Cliente, data: datetime):
+    def __init__(self, quarto: Quarto, cliente: Cliente, data: str):
         self.__quarto = quarto
         self.__cliente = cliente
         self.__data = data

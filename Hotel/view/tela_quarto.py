@@ -12,9 +12,7 @@ class TelaQuarto:
 		print("4 - Busca Quarto")
 		print("5 - Mostra Quarto")
 		print("0 - Retornar")
-
 		opcao = int(input("Escolha a opcao: "))
-
 		return opcao
 
         	
@@ -25,7 +23,7 @@ class TelaQuarto:
 		valor_da_diaria = input('Valor da diaria: ')
 		mobilias = []
 		while True:
-			rest = input('deseja incluir mobilia? [S/N]')
+			rest = input('deseja incluir mobilia? [S/N]').upper()
 			if rest == 'N':
 				break
 			descricao = input("Mobilia: ")

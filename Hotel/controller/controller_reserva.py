@@ -1,5 +1,5 @@
-import datetime
-import datetimerange
+#import datetime
+#import datetimerange
 from view.tela_reserva import TelaReserva
 from model.reserva import Reserva
 class ControllerReserva:
@@ -10,6 +10,7 @@ class ControllerReserva:
 
     def inclui_reserva(self):
         self.__controller_principal.controller_clientes.lista_cliente()
+        self.__controller_principal.controller_clientes.busca_cliente_por_cpf()
 
     def altera_reserva(self):
         ...
