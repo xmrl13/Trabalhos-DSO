@@ -5,11 +5,13 @@ from model.reserva import Reserva
 class ControllerReserva:
     def __init__(self, controller_principal):
         self.__controller_principal = controller_principal
+        self.__tela_reserva = TelaReserva()
         self.__reservas = []
 
     def inclui_reserva(self):
         self.__controller_principal.controller_clientes.lista_clientes()
-        self.__controller_principal.controller_clientes
+        cliente = self.__controller_principal.controller_clientes.busca_cliente_por_cpf()
+
 
 
     def altera_reserva(self):
@@ -19,6 +21,9 @@ class ControllerReserva:
         pass
 
     def busca_reserva(self):
+        pass
+    
+    def abre_tela(self):
         pass
 
 '''

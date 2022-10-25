@@ -21,8 +21,8 @@ class ControllerPrincipal:
     def inicializa_cliente(self):
         self.__controller_clientes.abre_tela()
 
-    def inicializa_tipo_quarto(self):
-        self.__controller_tipo_quarto.abre_tela()
+    def inicializa_reserva(self):
+        self.__controller_reserva.abre_tela()
 
     def encerra_sistema(self):
         exit(0)
@@ -32,7 +32,7 @@ class ControllerPrincipal:
 
     def abre_tela(self):
         lista_opcoes = {1: self.inicializa_funcionario, 2: self.inicializa_cliente,
-                        3: self.inicializa_tipo_quarto, 0: self.encerra_sistema
+                        3: self.inicializa_reserva, 0: self.encerra_sistema
                         }
 
         while True:
