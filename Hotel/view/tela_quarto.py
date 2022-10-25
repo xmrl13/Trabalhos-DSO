@@ -27,7 +27,7 @@ class TelaQuarto:
 			if rest == 'N':
 				break
 			descricao = input("Mobilia: ")
-			quantidade = input("Quantidade: ")
+			quantidade = int(input("Quantidade: "))
 			mobilias.append({'descricao': descricao, 'quantidade':quantidade})
 		return {
 			'numero_do_quarto': numero_do_quarto,

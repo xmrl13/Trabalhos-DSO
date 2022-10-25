@@ -4,7 +4,7 @@ from model.mobilia import Mobilia
 
 
 class Quarto:
-	def __init__(self, numero_do_quarto: int, valor_diaria: float,):
+	def __init__(self, numero_do_quarto: int, valor_diaria: float):
 		self.__numero_do_quarto = numero_do_quarto
 		self.__valor_diaria = valor_diaria
 		self.__mobilias = []
@@ -26,4 +26,10 @@ class Quarto:
 	def valor_diaria(self,valor_diaria):
 		self.__valor_diaria = valor_diaria
 	
-
+	@property
+	def mobilias(self):
+		return self.__mobilias
+	
+	def add_mobilia(self, descricao: str, quantidade: int):
+		mobilia = Mobilia(descricao, quantidade)
+		self.__mobilias.append(mobilia)

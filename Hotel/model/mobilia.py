@@ -1,17 +1,17 @@
 
 
 class Mobilia:
-    def __init__(self, mobilia: str, quantidade: int):
-        self.__mobilia = mobilia
+    def __init__(self, descricao: str, quantidade: int):
+        self.__descricao = descricao
         self.__quantidade = quantidade
 
     @property
-    def mobilia(self):
-        return self.__mobilia
+    def descricao(self):
+        return self.__descricao
 
-    @mobilia.setter
-    def mobilia(self, mobilia: str):
-        self.__mobilia = mobilia
+    @descricao.setter
+    def descrica(self, descricao: str):
+        self.__descricao = descricao
 
     @property
     def quantidade(self):
