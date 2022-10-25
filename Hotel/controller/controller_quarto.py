@@ -1,3 +1,4 @@
+from re import M
 from view.tela_quarto import TelaQuarto
 from model.mobilia import Mobilia
 from model.quarto import Quarto
@@ -10,16 +11,17 @@ class ControllerQuarto:
 
     def inclui_quarto(self):
         dados_quarto = self.__tela_quarto.pega_dados_quarto()
-        mobilia = dados_quarto['mobilias']
-        mobilias = {}
-        for i, x in mobilia:
-            mobilias = {i,x}
-            return mobilias
+        lista_com_dicionario_mobilia = dados_quarto['mobilias']
+        mobilias = []
+        self.__quartos.append(Quarto(dados_quarto['numero_do_quarto'], dados_quarto['valor_da_diaria']))
+        for quarto in self.__quartos:
+            if dados_quarto['numero_do_quarto'] == quarto.numero_do_quarto:
+                for dicionario_de_mobilia in lista_com_dicionario_mobilia:
+                    self.__quarto.__mobilias.append(Mobilia(dicionario_de_mobilia['descricao'], dicionario_de_mobilia['quantidade'])) #Criando a lista de mobilias
+
+        
+        
         print(mobilias)
-
-        #self.__quartos.append(Quarto(dados_quarto['numero_do_quarto'], dados_quarto['valor_da_diaria'], Mobilia(dados_quarto['mobilia',['descicao']], dados_quarto['mobilia',['quantidade']])))
-        #print(self.__quartos)
-
     def altera_quarto(self):
         pass
 

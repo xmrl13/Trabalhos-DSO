@@ -4,9 +4,11 @@ from model.mobilia import Mobilia
 
 
 class Quarto:
-	def __init__(self, numero_do_quarto: int, valor_diaria: float, mobilia: Mobilia):
+	def __init__(self, numero_do_quarto: int, valor_diaria: float,):
 		self.__numero_do_quarto = numero_do_quarto
 		self.__valor_diaria = valor_diaria
+		self.__mobilias = []
+
 	
 	@property
 	def numero_do_quarto(self):
