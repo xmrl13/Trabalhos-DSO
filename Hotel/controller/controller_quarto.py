@@ -46,7 +46,7 @@ class ControllerQuarto:
             dados_quarto = {
                 'numero_do_quarto': quarto.numero_do_quarto,
                 'valor_diaria': quarto.valor_diaria,
-                'descricao': quarto.mobilias
+                'descricao': quarto.mobilia.mobilias
             }
             self.__tela_quarto.mostra_quartos(dados_quarto)
             

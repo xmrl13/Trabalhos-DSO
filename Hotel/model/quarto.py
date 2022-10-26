@@ -29,13 +29,8 @@ class Quarto:
 	@property
 	def mobilias(self):
 		return self.__mobilias
-	@mobilias.setter
-	def mobilias(self, mobilias):
-		self.__mobilias = mobilias
 	
 	def add_mobilia(self, descricao: str, quantidade: int):
 		mobilia = Mobilia(descricao, quantidade)
 		self.__mobilias.append(mobilia)
 	
-	def get_mobilias(self):
-		return self.__mobilias
