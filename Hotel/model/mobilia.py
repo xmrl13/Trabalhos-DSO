@@ -10,7 +10,7 @@ class Mobilia:
         return self.__descricao
 
     @descricao.setter
-    def descrica(self, descricao: str):
+    def descricao(self, descricao):
         self.__descricao = descricao
 
     @property
@@ -18,6 +18,5 @@ class Mobilia:
         return self.__quantidade
 
     @quantidade.setter
-    def quantidade(self, quantidade: int):
+    def quantidade(self, quantidade):
         self.__quantidade = quantidade
-    

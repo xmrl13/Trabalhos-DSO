@@ -26,7 +26,7 @@ class TelaQuarto:
 			rest = input('deseja incluir mobilia? [S/N]').upper()
 			if rest == 'N':
 				break
-			descricao = input("Mobilia: ")
+			descricao = input("Descrição da mobilia: ")
 			quantidade = int(input("Quantidade: "))
 			mobilias.append({'descricao': descricao, 'quantidade':quantidade})
 		return {
@@ -34,4 +34,21 @@ class TelaQuarto:
 			'valor_da_diaria': valor_da_diaria,
 			'mobilias': mobilias
 		}
-		#  mobilias['descricao'] = quantidade    -> seta no dicionario
+	
+	def pega_quarto_por_numero(self):
+		numero_do_quarto = input('Digite o numero do quarto que deseja localizar: ')
+		return numero_do_quarto
+
+	def sem_quartos_cadastrados(self):
+		print('Sem quartos cadastrados!')
+	
+	def quarto_excluido(self):
+		print(20 * '*')
+		print('Quarto excluido com sucessso')
+		print(20 * '*')
+
+	def mostra_quartos(self, dados_quarto):
+		print(20 * '*')
+		print(f"Numero do quarto: {dados_quarto['numero_do_quarto']}")
+		print(f"Valor da diária: {dados_quarto['valor_diaria']}")
+		print(f"Mobilias: {dados_quarto['descricao']}")
