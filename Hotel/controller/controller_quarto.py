@@ -1,4 +1,4 @@
-from re import M
+
 from view.tela_quarto import TelaQuarto
 from model.mobilia import Mobilia
 from model.quarto import Quarto
