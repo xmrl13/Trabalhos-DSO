@@ -51,4 +51,6 @@ class TelaQuarto:
 		print(20 * '*')
 		print(f"Numero do quarto: {dados_quarto['numero_do_quarto']}")
 		print(f"Valor da diária: {dados_quarto['valor_diaria']}")
-		print(f"Mobilias: {dados_quarto['descricao']}")
+		print(f"Mobilias: ")
+		for dados_mobilia in dados_quarto['mobilias']:
+			print(f"Mobila: {dados_mobilia['descricao']},Quantidade: {dados_mobilia['quantidade']}")

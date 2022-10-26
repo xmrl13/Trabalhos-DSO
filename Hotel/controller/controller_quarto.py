@@ -43,10 +43,15 @@ class ControllerQuarto:
             return None
         
         for quarto in self.__quartos:
+            mobilias_para_tela = []
+            for mobilia in quarto.mobilias:
+                dados_mobilia = {'descricao': mobilia.descricao, 'quantidade': mobilia.quantidade}
+                mobilias_para_tela.append(dados_mobilia)
+
             dados_quarto = {
                 'numero_do_quarto': quarto.numero_do_quarto,
                 'valor_diaria': quarto.valor_diaria,
-                'descricao': quarto.mobilia.mobilias
+                'mobilias': mobilias_para_tela
             }
             self.__tela_quarto.mostra_quartos(dados_quarto)
             
