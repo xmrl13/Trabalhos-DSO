@@ -7,6 +7,7 @@ class TelaPrincipal:
         print("2 - Clientes")
         print('3 - Reservas')
         print('4 - Quartos')
+        print('5 - Andares')
         print("0 - Encerrar")
 
         opcao = int(input("Escolha uma opção: "))
