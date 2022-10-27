@@ -26,7 +26,7 @@ class ControllerReserva:
 
         if not reservas:
             self.__reservas.append(Reserva(quarto, cliente, intervalo_reservado))
-            reservas.append(intervalo_reservado)
+            self.__controller_principal.controller_quarto.adiciona_reserva(quarto, intervalo_reservado)
             print(self.__reservas)
             return
         

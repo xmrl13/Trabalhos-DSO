@@ -6,7 +6,7 @@ class Quarto:
 		self.__numero_do_quarto = numero_do_quarto
 		self.__valor_diaria = valor_diaria
 		self.__mobilias = []
-		self.__reservas = []
+		self.__dias_reservados = []
 
 	
 	@property
@@ -30,10 +30,12 @@ class Quarto:
 		return self.__mobilias
 
 	@property
-	def reservas(self):
-		return self.__reservas
+	def dias_reservados(self):
+		return self.__dias_reservados
 
 	def add_mobilia(self, descricao: str, quantidade: int):
 		mobilia = Mobilia(descricao, quantidade)
 		self.__mobilias.append(mobilia)
 	
+	def adiciona_reserva(self, intervalo_reservado):
+		self.__dias_reservados.append(intervalo_reservado)
