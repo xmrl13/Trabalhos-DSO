@@ -1,5 +1,5 @@
-#import datetime
-#import datetimerange
+import datetime
+import datetimerange
 from view.tela_reserva import TelaReserva
 from model.reserva import Reserva
 class ControllerReserva:
@@ -9,8 +9,33 @@ class ControllerReserva:
         self.__reservas = []
 
     def inclui_reserva(self):
-        self.__controller_principal.controller_clientes.lista_cliente()
-        self.__controller_principal.controller_clientes.busca_cliente_por_cpf()
+        cliente = self.__controller_principal.controller_clientes.busca_cliente_por_cpf()
+        quarto = self.__controller_principal.controller_quarto.busca_quarto_por_numero()
+        reservas = self.__controller_principal.controller_quarto.retorna_reservas(quarto)
+        data_da_reserva = self.__tela_reserva.pega_data_da_reserva()
+        entrada_reserva = datetime.datetime(
+            data_da_reserva['ano_entrada'],
+            data_da_reserva['mes_entrada'],
+            data_da_reserva['dia_entrada'])
+            
+        saida_reserva = datetime.datetime(
+            data_da_reserva['ano_saida'],
+            data_da_reserva['mes_saida'],
+            data_da_reserva['dia_saida'])
+        intervalo_reservado = datetimerange.DateTimeRange(entrada_reserva, saida_reserva)
+
+        if not reservas:
+            self.__reservas.append(Reserva(quarto, cliente, intervalo_reservado))
+            reservas.append(intervalo_reservado)
+            print(self.__reservas)
+            return
+        
+        for reservas_efetuadas in reservas:
+            if intervalo_reservado.is_intersection(reservas_efetuadas):
+                print('Intervalo já reservado')
+            else:
+                print('Intervalo não reservado reservado')
+        
 
     def altera_reserva(self):
         ...
@@ -35,12 +60,3 @@ class ControllerReserva:
         while True:
             opcao = self.__tela_reserva.abre_tela()
             lista_opcoes[opcao]()
-
-'''
-from controller_principal import ControllerPrincipal
-
-controle_principal = ControllerPrincipal()
-
-controle_reserva = ControllerReserva(controle_principal)
-'''
-#

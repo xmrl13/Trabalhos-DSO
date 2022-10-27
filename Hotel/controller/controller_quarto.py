@@ -20,6 +20,12 @@ class ControllerQuarto:
             quarto.add_mobilia(
                 dicionario_de_mobilia['descricao'], dicionario_de_mobilia['quantidade'])
             self.__quartos.append(quarto)
+            return
+        self.__quartos.append(quarto)
+    
+    def retorna_reservas(self, quarto):
+        if quarto in self.__quartos:
+            return quarto.reservas
 
     def altera_quarto(self):
         pass
@@ -46,7 +52,7 @@ class ControllerQuarto:
                     'mobilias': quarto.mobilias,
                 }
                 self.__tela_quarto.mostra_quartos(quarto_completo)
-                return
+                return quarto
         self.__tela_quarto.sem_quartos_cadastrados()
 
     def lista_quartos(self):

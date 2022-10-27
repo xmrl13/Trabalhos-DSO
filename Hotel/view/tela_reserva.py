@@ -14,3 +14,22 @@ class TelaReserva():
         print('0 - Voltar')
         opcao = int(input('Digite uma opção: '))
         return opcao
+
+    def pega_data_da_reserva(self):
+        print(5 * '*')
+        dia_entrada = int(input('Digite o dia que deseja reservar (DD): '))
+        mes_entrada = int(input('Digite o mês que deseja reservar (MM): '))
+        ano_entrada = int(input('Digite o ano que deseja reservar (AAAA): '))
+        print(5 * '*')
+        dia_saida = int(input('Digite o dia que deseja encerrar a reserva (DD): '))
+        mes_saida = int(input('Digite o mês que deseja encerrar a reserva (MM): '))
+        ano_saida = int(input('Digite o ano que deseja encerrar a reserva (AAAA): '))
+        print(5 * '*')
+        return {
+            'dia_entrada': dia_entrada,
+            'mes_entrada': mes_entrada,
+            'ano_entrada': ano_entrada,
+            'dia_saida': dia_saida,
+            'mes_saida': mes_saida,
+            'ano_saida': ano_saida
+        }
