@@ -68,3 +68,8 @@ class TelaCliente:
         print(20 * '*')
         print('Cliente não encontrado!')
         print(20 * '*')
+
+    def opcao_invalida(self):
+        print(20 * '*')
+        print('POR FAVOR DIGITE UM VALOR NÚMERICO E DENTRO DO INTERVALO VÁLIDO!')
+        print(20 * '*')

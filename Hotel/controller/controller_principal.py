@@ -1,3 +1,4 @@
+import sys
 from view.tela_principal import TelaPrincipal
 from controller.controller_funcionarios import ControllerFuncionarios
 from controller.controller_quarto import ControllerQuarto
@@ -64,7 +65,8 @@ class ControllerPrincipal:
         self.abre_tela()
     
     def encerra_sistema(self):
-        exit(0)
+        self.__tela_principal.sistema_encerrado()
+        sys.exit(1)
 
     def abre_tela(self):
         lista_opcoes = {
@@ -75,9 +77,11 @@ class ControllerPrincipal:
             5: self.inicializa_andar,
             0: self.encerra_sistema
                         }
-
+        
         while True:
             opcao_escolhida = self.__tela_principal.abre_tela()
             funcao_escolhida = lista_opcoes[opcao_escolhida]
             funcao_escolhida()
-            #
+                    
+        
+        

@@ -27,6 +27,9 @@ class ControllerAndar:
         self.__andar.append(Andar(dados_andar, quartos))
 
     def excluir_andar(self):
+        if not self.__andar:
+            self.__tela_andar.sem_andar_cadastrado()
+            return
         andar_a_verificar = int(self.__tela_andar.buscar_andar())
         for andar in self.__andar:
             if andar.numero == andar_a_verificar:
@@ -54,7 +57,10 @@ class ControllerAndar:
     def abre_tela(self):
         lista_opcoes = {1: self.inclui_andar, 2: self.excluir_andar,
                         3: self.lista_andar, 0: self.retornar}
-
-        while True:
-            opcao = self.__tela_andar.abre_tela()
-            lista_opcoes[opcao]()
+        try:
+            while True:
+                opcao = self.__tela_andar.abre_tela()
+                lista_opcoes[opcao]()
+        except Exception:
+            self.__tela_andar.opcao_invalida()
+            self.abre_tela()

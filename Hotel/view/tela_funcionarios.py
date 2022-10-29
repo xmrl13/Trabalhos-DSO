@@ -64,5 +64,8 @@ class TelaFuncionarios():
         print(20 * '*')
         print('ALTERAÇAO FEITA COM SUCESSO')
         print(20 * '*')
-        #
-        #
+    
+    def opcao_invalida(self):
+        print(20 * '*')
+        print('POR FAVOR DIGITE UM VALOR NÚMERICO E DENTRO DO INTERVALO VÁLIDO!')
+        print(20 * '*')

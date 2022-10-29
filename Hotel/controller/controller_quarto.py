@@ -42,6 +42,10 @@ class ControllerQuarto:
 
     def busca_quarto_por_numero(self):
         numero_do_quarto = self.__tela_quarto.pega_quarto_por_numero()
+        if not self.__quartos:
+            self.__tela_quarto.sem_quartos_cadastrados()
+            return None
+
         for quarto in self.__quartos:
             if numero_do_quarto == quarto.numero_do_quarto:
                 quarto_completo = {
@@ -79,6 +83,9 @@ class ControllerQuarto:
     def retorna_quartos(self):
         return self.__quartos
 
+    def mostra_quarto(self, quarto):
+        return quarto.numero_do_quarto
+
     def abre_tela(self):
         lista_opcoes = {
             1: self.inclui_quarto,
@@ -88,8 +95,12 @@ class ControllerQuarto:
             5: self.lista_quartos,
             0: self.retornar
         }
-        while True:
-            lista_opcoes[self.__tela_quarto.abre_tela()]()
+        try:
+            while True:
+                lista_opcoes[self.__tela_quarto.abre_tela()]()
 
-    def mostra_quarto(self, quarto):
-        return quarto.numero_do_quarto
+        except Exception:
+            self.__tela_quarto.opcao_invalida()
+            self.abre_tela()
+
+

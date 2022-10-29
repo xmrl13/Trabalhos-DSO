@@ -42,10 +42,16 @@ class TelaAndar:
     def mais_quartos(self):
         print(20 * '*')
         resposta = input('Deseja Adicionar Mais Um Quarto ? [S/N] ').upper()
-        return resposta
         print(20 * '*')
+        return resposta
+
 
     def reclama_andar(self):
         print(20 * '*')
         print('ANDAR NÃO EXISTENTE')
+        print(20 * '*')
+
+    def opcao_invalida(self):
+        print(20 * '*')
+        print('POR FAVOR DIGITE UM VALOR NÚMERICO E DENTRO DO INTERVALO VÁLIDO!')
         print(20 * '*')

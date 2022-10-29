@@ -85,10 +85,14 @@ class ControllerClientes:
         lista_opcoes = {1: self.inclui_cliente, 2: self.altera_cliente, 3: self.excluir_cliente,
          4: self.busca_cliente_por_cpf, 5: self.lista_cliente, 0: self.retornar}
 
-        while True:
-            opcao = self.__tela_clientes.abre_tela()
-            lista_opcoes[opcao]()
+        try:
+            while True:
+                opcao = self.__tela_clientes.abre_tela()
+                lista_opcoes[opcao]()
 
+        except Exception:
+            self.__tela_clientes.opcao_invalida()
+            self.abre_tela()
 
 '''
 Classe enum para tipos de quartos

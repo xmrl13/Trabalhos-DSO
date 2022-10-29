@@ -38,3 +38,8 @@ class TelaReserva():
     def confirma_reserva(self):
         print('Reserva efetuada com sucesso')
         return
+    
+    def opcao_invalida(self):
+        print(20 * '*')
+        print('POR FAVOR DIGITE UM VALOR NÚMERICO E DENTRO DO INTERVALO VÁLIDO!')
+        print(20 * '*')

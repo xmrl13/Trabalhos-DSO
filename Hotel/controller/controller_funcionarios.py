@@ -71,6 +71,10 @@ class ControllerFuncionarios:
             5: self.lista_funcionario,
             0: self.retornar
         }
-        while True:
-            lista_opcoes[self.__tela_funcionarios.abre_tela()]()
-        #
+        try:
+            while True:
+                lista_opcoes[self.__tela_funcionarios.abre_tela()]()
+        
+        except Exception:
+            self.__tela_funcionarios.opcao_invalida()
+            self.abre_tela()
