@@ -52,11 +52,8 @@ class TelaQuarto:
         print(f"Valor da diária: {dados_quarto['valor_diaria']}")
         print(5 * '*', 'Reservas', 5 * '*')
         print(f"Dias Reservados: {dados_quarto['dias_reservados']}")
-        '''
-        for i in dados_quarto:
-            print(f"Dias reservados: {dados_quarto['dias_reservados']}")
-        print(5 * '*', 'Mobilias', 5 * '*')
-        '''
+       
+       
         for dados_mobilia in dados_quarto['mobilias']:
             print(
                 f"Mobila: {dados_mobilia.descricao},Quantidade: {dados_mobilia.quantidade}")

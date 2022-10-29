@@ -22,7 +22,7 @@ class ControllerQuarto:
             self.__quartos.append(quarto)
             return
         self.__quartos.append(quarto)
-    
+
     def retorna_reservas(self, quarto):
         if quarto in self.__quartos:
             return quarto.dias_reservados
@@ -69,7 +69,7 @@ class ControllerQuarto:
                 'mobilias': quarto.mobilias,
             }
             self.__tela_quarto.mostra_quartos(dados_quarto)
-        
+
     def adiciona_reserva(self, quarto, intervalo_reservado):
         for quarto in self.__quartos:
             if quarto in self.__quartos:
@@ -78,6 +78,9 @@ class ControllerQuarto:
 
     def retornar(self):
         self.__controller_principal.abre_tela()
+
+    def retorna_quartos(self):
+        return self.__quartos
 
     def abre_tela(self):
         lista_opcoes = {
@@ -90,3 +93,6 @@ class ControllerQuarto:
         }
         while True:
             lista_opcoes[self.__tela_quarto.abre_tela()]()
+
+    def mostra_quarto(self, quarto):
+        return quarto.numero_do_quarto

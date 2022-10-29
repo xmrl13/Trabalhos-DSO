@@ -35,6 +35,15 @@ class ControllerPrincipal:
     def controller_andar(self):
         return self.__controller_andar
 
+    def retorna_quartos(self):
+        return self.__controller_quarto.retorna_quartos()
+    
+    def pega_quartos(self):
+        return self.controller_quarto.busca_quarto_por_numero()
+
+    def mostra_quarto(self, quarto):
+        return self.controller_quarto.mostra_quarto(quarto)
+
 
     def inicializa_funcionario(self):
         self.__controller_funcionarios.abre_tela()
