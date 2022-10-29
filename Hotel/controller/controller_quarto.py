@@ -18,7 +18,7 @@ class ControllerQuarto:
 
         for dicionario_de_mobilia in lista_com_dicionario_mobilia:
             quarto.add_mobilia(dicionario_de_mobilia['descricao'], dicionario_de_mobilia['quantidade'])
-
+            
         self.__quartos.append(quarto)
 
     def retorna_reservas(self, quarto):
@@ -83,8 +83,15 @@ class ControllerQuarto:
     def retorna_quartos(self):
         return self.__quartos
 
-    def mostra_quarto(self, quarto):
-        return quarto.numero_do_quarto
+    def mostra_quartos(self, quarto):
+        quarto_completo = {
+            'numero_do_quarto':quarto.numero_do_quarto,
+            'valor_diaria':quarto.valor_diaria,
+            'mobilias':quarto.mobilias,
+            'dias_reservados': quarto.dias_reservados
+        }
+        self.__tela_quarto.mostra_quartos(quarto_completo)
+        
 
     def abre_tela(self):
         lista_opcoes = {
@@ -95,12 +102,12 @@ class ControllerQuarto:
             5: self.lista_quartos,
             0: self.retornar
         }
-        try:
-            while True:
-                lista_opcoes[self.__tela_quarto.abre_tela()]()
+        #try:
+        while True:
+            lista_opcoes[self.__tela_quarto.abre_tela()]()
 
-        except Exception:
+        '''except Exception:
             self.__tela_quarto.opcao_invalida()
-            self.abre_tela()
+            self.abre_tela()'''
 
 

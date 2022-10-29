@@ -7,20 +7,21 @@ class TelaAndar:
         print(20 * '*')
         print(" Escolha a opçao ")
         print("1 - Incluir Andar")
-        print("2 - Excluir Andar")
-        print("3 - Lista Andares")
+        print("2 - Adicionar quarto ao andar")
+        print("3 - Excluir Andar")
+        print("4 - Lista Andares")
         print("0 - Retornar")
         opcao = int(input("Escolha a opcao: "))
         return opcao
 
     def inclui_andar(self):
         print('Cadastrar Andar')
-        numero_andar = input('Numero do andar: ')
+        numero_andar = int(input('Numero do andar: '))
         return numero_andar
 
     def buscar_andar(self):
         print(20 * '*')
-        andar = input("Insira o numero do andar que deseja: ")
+        andar = int(input("Insira o numero do andar que deseja: "))
         print(20 * '*')
         return andar
 
@@ -30,6 +31,7 @@ class TelaAndar:
     def mostra_andar(self, andar):
         print(20 * '*')
         print(f"Andar:{andar}º")
+    
 
     def mostra_quarto_do_andar(self, quarto):
         print(f"- Quarto:{quarto}º")
@@ -50,6 +52,12 @@ class TelaAndar:
         print(20 * '*')
         print('ANDAR NÃO EXISTENTE')
         print(20 * '*')
+    
+    def reclama_andar_sem_quarto(self):
+        print(20 * '*')
+        print('ANDAR SEM QUARTOS CADASTRADOS')
+        print(20 * '*')
+
 
     def opcao_invalida(self):
         print(20 * '*')

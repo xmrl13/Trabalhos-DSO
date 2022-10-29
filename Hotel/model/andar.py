@@ -2,9 +2,9 @@ from model.quarto import Quarto
 
 
 class Andar:
-    def __init__(self, numero: int, quartos: list):
+    def __init__(self, numero: int):
         self.__numero = numero
-        self.__quartos = quartos
+        self.__quartos = []
 
     @property
     def numero(self):
@@ -23,6 +23,10 @@ class Andar:
         for quarto in self.__quartos:
             if quarto.numero_do_quarto == numero:
                 return quarto
+
+    def add_quarto(self, quarto: Quarto):
+        self.__quartos.append(quarto)
+
 
     # deve estar no controlador tb e se remover e add em um, deve ter no outro
     def remove_quarto(self, quarto: Quarto):

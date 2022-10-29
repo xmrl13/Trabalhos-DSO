@@ -43,7 +43,7 @@ class ControllerPrincipal:
         return self.controller_quarto.busca_quarto_por_numero()
 
     def mostra_quarto(self, quarto):
-        return self.controller_quarto.mostra_quarto(quarto)
+        return self.controller_quarto.mostra_quartos(quarto)
 
 
     def inicializa_funcionario(self):
