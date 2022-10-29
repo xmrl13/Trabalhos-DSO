@@ -17,8 +17,8 @@ class ControllerQuarto:
                         dados_quarto['valor_da_diaria'])
 
         for dicionario_de_mobilia in lista_com_dicionario_mobilia:
-            quarto.add_mobilia(
-                dicionario_de_mobilia['descricao'], dicionario_de_mobilia['quantidade'])
+            quarto.add_mobilia(dicionario_de_mobilia['descricao'], dicionario_de_mobilia['quantidade'])
+            print('Adicionei mobilia')
             self.__quartos.append(quarto)
             return
         self.__quartos.append(quarto)
@@ -74,7 +74,6 @@ class ControllerQuarto:
         for quarto in self.__quartos:
             if quarto in self.__quartos:
                 quarto.adiciona_reserva(intervalo_reservado)
-                print('Adicionei')
 
     def retornar(self):
         self.__controller_principal.abre_tela()

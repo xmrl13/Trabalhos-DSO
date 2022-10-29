@@ -2,7 +2,7 @@ from model.quarto import Quarto
 
 
 class Andar:
-    def __init__(self, numero: int, quartos: []):
+    def __init__(self, numero: int, quartos: list):
         self.__numero = numero
         self.__quartos = quartos
 

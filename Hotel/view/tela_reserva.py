@@ -7,10 +7,7 @@ class TelaReserva():
         print('Reserva')
         print(5 * '*')
         print('1 - Cadastrar Reserva')
-        print('2 - Alterar Reserva')
-        print('3 - Remover Reserva')
-        print('4 - Buscar Reserva')
-        print('5 - Listar Reserva')
+        print('2 - Remover Reserva')
         print('0 - Voltar')
         opcao = int(input('Digite uma opção: '))
         return opcao
@@ -33,3 +30,11 @@ class TelaReserva():
             'mes_saida': mes_saida,
             'ano_saida': ano_saida
         }
+
+    def reclama_reserva(self):
+        print('Intervalo já reservado')
+        return
+    
+    def confirma_reserva(self):
+        print('Reserva efetuada com sucesso')
+        return
