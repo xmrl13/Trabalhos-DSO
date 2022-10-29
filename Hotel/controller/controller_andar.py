@@ -26,17 +26,14 @@ class ControllerAndar:
                 break
         self.__andar.append(Andar(dados_andar, quartos))
 
-
     def excluir_andar(self):
-        andar_a_verificar = int (self.__tela_andar.buscar_andar())
+        andar_a_verificar = int(self.__tela_andar.buscar_andar())
         for andar in self.__andar:
             if andar.numero == andar_a_verificar:
                 self.__andar.remove(andar)
                 return
 
         self.__tela_andar.reclama_andar()
-                
-        
 
     def lista_andar(self):
         if not self.__andar:

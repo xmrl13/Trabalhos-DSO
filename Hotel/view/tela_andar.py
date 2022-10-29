@@ -27,7 +27,6 @@ class TelaAndar:
     def sem_andar_cadastrado(self):
         print('Sem nenhum andar cadastrados!')
 
-
     def mostra_andar(self, andar):
         print(20 * '*')
         print(f"Andar:{andar}º")
