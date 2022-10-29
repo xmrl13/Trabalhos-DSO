@@ -18,9 +18,7 @@ class ControllerQuarto:
 
         for dicionario_de_mobilia in lista_com_dicionario_mobilia:
             quarto.add_mobilia(dicionario_de_mobilia['descricao'], dicionario_de_mobilia['quantidade'])
-            print('Adicionei mobilia')
-            self.__quartos.append(quarto)
-            return
+
         self.__quartos.append(quarto)
 
     def retorna_reservas(self, quarto):
