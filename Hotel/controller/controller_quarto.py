@@ -12,6 +12,10 @@ class ControllerQuarto:
 
     def inclui_quarto(self):
         dados_quarto = self.__tela_quarto.pega_dados_quarto()
+        
+        if dados_quarto is None:
+            return
+
         lista_com_dicionario_mobilia = dados_quarto['mobilias']
         quarto = Quarto(dados_quarto['numero_do_quarto'],
                         dados_quarto['valor_da_diaria'])
@@ -24,9 +28,6 @@ class ControllerQuarto:
     def retorna_reservas(self, quarto):
         if quarto in self.__quartos:
             return quarto.dias_reservados
-
-    def altera_quarto(self):
-        pass
 
     def excluir_quarto(self):
         if self.lista_quartos is None:
@@ -41,11 +42,11 @@ class ControllerQuarto:
         self.__tela_quarto.sem_quartos_cadastrados()
 
     def busca_quarto_por_numero(self):
-        numero_do_quarto = self.__tela_quarto.pega_quarto_por_numero()
         if not self.__quartos:
             self.__tela_quarto.sem_quartos_cadastrados()
             return None
-
+        numero_do_quarto = self.__tela_quarto.pega_quarto_por_numero()
+        
         for quarto in self.__quartos:
             if numero_do_quarto == quarto.numero_do_quarto:
                 quarto_completo = {
@@ -94,12 +95,12 @@ class ControllerQuarto:
         
 
     def abre_tela(self):
+        
         lista_opcoes = {
             1: self.inclui_quarto,
-            2: self.altera_quarto,
-            3: self.excluir_quarto,
-            4: self.busca_quarto_por_numero,
-            5: self.lista_quartos,
+            2: self.excluir_quarto,
+            3: self.busca_quarto_por_numero,
+            4: self.lista_quartos,
             0: self.retornar
         }
         try:

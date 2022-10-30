@@ -10,7 +10,7 @@ class TelaFuncionarios():
         print("2 - Alterar funcionario")
         print("3 - Excluir funcionario")
         print("4 - Busca funcionario")
-        print("5 - Mostra funcionarios")
+        print("5 - Listar funcionarios")
         print("0 - Retornar")
 
         opcao = int(input("Escolha a opcao: "))

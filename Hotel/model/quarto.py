@@ -1,6 +1,5 @@
 from model.mobilia import Mobilia
 
-
 class Quarto:
 	def __init__(self, numero_do_quarto: int, valor_diaria: float):
 		self.__numero_do_quarto = numero_do_quarto

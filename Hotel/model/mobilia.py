@@ -1,5 +1,4 @@
 
-
 class Mobilia:
     def __init__(self, descricao: str, quantidade: int):
         self.__descricao = descricao

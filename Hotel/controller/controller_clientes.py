@@ -56,6 +56,9 @@ class ControllerClientes:
             self.__tela_clientes.sem_cliente_cadastrado()
             return None
         cpf = self.__tela_clientes.pega_cliente_por_cpf()
+        if cpf == None:
+            return
+            
         for cliente in self.__clientes:
             if cpf == cliente.cpf:
                 dados_cliente = {
@@ -101,8 +104,4 @@ class ControllerClientes:
         except Exception:
             self.__tela_clientes.opcao_invalida()
             self.abre_tela()
-
-'''
-Classe enum para tipos de quartos
-'''
  

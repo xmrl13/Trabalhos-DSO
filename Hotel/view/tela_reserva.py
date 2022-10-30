@@ -32,11 +32,17 @@ class TelaReserva():
         }
 
     def reclama_reserva(self):
-        print('Intervalo já reservado')
+        print('Intervalo já reservado.')
         return
     
     def confirma_reserva(self):
-        print('Reserva efetuada com sucesso')
+        print('Reserva efetuada com sucesso.')
+        return
+    
+    def data_errada(self):
+        print(5 * '*')
+        print('Data inexistente inserida.')
+        print(5 * '*')
         return
     
     def opcao_invalida(self):

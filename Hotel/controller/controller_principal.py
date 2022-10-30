@@ -67,6 +67,19 @@ class ControllerPrincipal:
     def encerra_sistema(self):
         self.__tela_principal.sistema_encerrado()
         sys.exit(1)
+    
+    def relatorio_geral(self):
+        self.__tela_principal.relatorio_funcionarios()
+        self.__controller_funcionarios.lista_funcionario()
+
+        self.__tela_principal.relatorio_clientes()
+        self.__controller_clientes.lista_cliente()
+
+        self.__tela_principal.relatorio_quartos()
+        self.__controller_quarto.lista_quartos()
+
+        self.__tela_principal.relatorio_andar()
+        self.__controller_andar.lista_andar()
 
     def abre_tela(self):
         lista_opcoes = {
@@ -75,6 +88,7 @@ class ControllerPrincipal:
             3: self.inicializa_reserva,
             4: self.inicializa_quarto,
             5: self.inicializa_andar,
+            6: self.relatorio_geral,
             0: self.encerra_sistema
                         }
         

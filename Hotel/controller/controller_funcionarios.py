@@ -51,6 +51,10 @@ class ControllerFuncionarios:
         self.__tela_funcionarios.reclama_funcionario()
 
     def lista_funcionario(self):
+        if self.__funcionarios is None:
+            self.__tela_funcionarios.reclama_funcionario()
+            return
+            
         for funcionario in self.__funcionarios:
             dados_funcionario = {
                 'data_nascimento_funcionario': funcionario.data_nascimento,

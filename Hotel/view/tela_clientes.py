@@ -37,7 +37,7 @@ class TelaCliente:
         valida_fone = fone_cliente.isnumeric()
         if not valida_fone:
             print('DIGITE O TELEFONE SOMENTE COM NUMEROS!')
-            return
+            return None
 
         
 
@@ -51,6 +51,11 @@ class TelaCliente:
 
     def pega_cliente_por_cpf(self):
         cpf_cliente = input('Digite o CPF do cliente que deseja buscar: ')
+        valida_cpf_cliente = cpf_cliente.isnumeric()
+        if not valida_cpf_cliente:
+            print('DIGITE APENAS NÚMEROS PARA O CPF!')
+            return None
+            
         return cpf_cliente
 
     def mostra_cliente(self, dados_cliente):

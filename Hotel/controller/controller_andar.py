@@ -9,7 +9,9 @@ class ControllerAndar:
         self.__andar = []
 
     def inclui_andar(self):
-        dados_andar = int(self.__tela_andar.inclui_andar())
+        dados_andar = self.__tela_andar.inclui_andar()
+        if dados_andar is None:
+            return
         
         self.__andar.append(Andar(dados_andar))
 

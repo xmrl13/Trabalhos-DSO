@@ -16,7 +16,12 @@ class TelaAndar:
 
     def inclui_andar(self):
         print('Cadastrar Andar')
-        numero_andar = int(input('Numero do andar: '))
+        numero_andar = input('Numero do andar: ')
+        verifica_numero_andar = numero_andar.isnumeric()
+        if not verifica_numero_andar:
+            print('DIGITE APENAS NÚMEROS PARA O NÚMERO DO ANDAR!')
+            return None
+        numero_andar = int(numero_andar)
         return numero_andar
 
     def buscar_andar(self):
