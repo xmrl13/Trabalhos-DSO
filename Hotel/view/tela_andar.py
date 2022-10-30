@@ -31,10 +31,7 @@ class TelaAndar:
     def mostra_andar(self, andar):
         print(20 * '*')
         print(f"Andar:{andar}º")
-    
 
-    def mostra_quarto_do_andar(self, quarto):
-        print(f"- Quarto:{quarto}º")
 
     def reclama_quartos(self):
         print(20 * '*')

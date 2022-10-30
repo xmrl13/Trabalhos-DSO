@@ -18,10 +18,29 @@ class TelaCliente:
     def pega_dados_cliente(self):
         print('Insira os dados do Cliente')
         nome_cliente = input('Nome do cliente: ')
+        valida_nome = nome_cliente.isalpha()
+        if not valida_nome:
+            print('')
+            print("DIGITE O NOME SOMENTE COM LETRAS!")
+            return None
+
         data_nascimento_cliente = input('Data de nascimento do cliente: ')
+        
         cpf_cliente = input('CPF do cliente: ')
+        valida_cpf = cpf_cliente.isnumeric()
+        if not valida_cpf:
+            print("DIGITE O CPF SOMENTE COM NUMEROS")
+            return None
+            
         email_cliente = input('Email do cliente: ')
         fone_cliente = input('Telefone do cliente: ')
+        valida_fone = fone_cliente.isnumeric()
+        if not valida_fone:
+            print('DIGITE O TELEFONE SOMENTE COM NUMEROS!')
+            return
+
+        
+
         return {
             'nome_cliente': nome_cliente,
             'data_nascimento_cliente': data_nascimento_cliente,
@@ -72,4 +91,9 @@ class TelaCliente:
     def opcao_invalida(self):
         print(20 * '*')
         print('POR FAVOR DIGITE UM VALOR NÚMERICO E DENTRO DO INTERVALO VÁLIDO!')
+        print(20 * '*')
+
+    def cliente_ja_cadastrado(self):
+        print(20 * '*')
+        print('Esse cpf já está cadastrado!')
         print(20 * '*')

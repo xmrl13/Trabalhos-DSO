@@ -9,7 +9,6 @@ class ControllerAndar:
         self.__andar = []
 
     def inclui_andar(self):
-        quartos = self.__controller_principal.retorna_quartos()
         dados_andar = int(self.__tela_andar.inclui_andar())
         
         self.__andar.append(Andar(dados_andar))
@@ -29,9 +28,6 @@ class ControllerAndar:
             return
         else:
             andar.add_quarto(quarto)    
-            print(andar)
-            print(quarto)
-            print('foi executado todo add...andar')
 
     def buscar_andar(self):
         if not self.__andar:
@@ -47,7 +43,7 @@ class ControllerAndar:
                     return andar
 
                 for quartos in andar.quartos:
-                    self.__controller_principal.controller_quartos.mostra_quartos(quartos)
+                    self.__controller_principal.controller_quarto.mostra_quartos(quartos)
                 return andar
         self.__tela_andar.reclama_andar()
         return None    
@@ -73,11 +69,8 @@ class ControllerAndar:
             self.__tela_andar.mostra_andar(andar.numero)
 
             dados_andar = andar.quartos
-            print('saiu da tela andar e seguiu para o print andar.quartos')
-            print(andar.quartos)
             for quarto in dados_andar:
-                self.__tela_andar.mostra_quarto_do_andar(
-                    self.__controller_principal.mostra_quarto(quarto))
+                    self.__controller_principal.mostra_quarto(quarto)
 
     def retornar(self):
         self.__controller_principal.abre_tela()
@@ -85,10 +78,10 @@ class ControllerAndar:
     def abre_tela(self):
         lista_opcoes = {1: self.inclui_andar, 2:self.add_quarto_no_andar , 3: self.excluir_andar,
                         4: self.lista_andar, 0: self.retornar}
-        #try:
-        while True:
-            opcao = self.__tela_andar.abre_tela()
-            lista_opcoes[opcao]()
-        '''except Exception:
+        try:
+            while True:
+                opcao = self.__tela_andar.abre_tela()
+                lista_opcoes[opcao]()
+        except Exception:
             self.__tela_andar.opcao_invalida()
-            self.abre_tela()'''
+            self.abre_tela()

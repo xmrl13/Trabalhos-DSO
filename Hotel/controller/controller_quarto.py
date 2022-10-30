@@ -102,12 +102,12 @@ class ControllerQuarto:
             5: self.lista_quartos,
             0: self.retornar
         }
-        #try:
-        while True:
-            lista_opcoes[self.__tela_quarto.abre_tela()]()
+        try:
+            while True:
+                lista_opcoes[self.__tela_quarto.abre_tela()]()
 
-        '''except Exception:
+        except Exception:
             self.__tela_quarto.opcao_invalida()
-            self.abre_tela()'''
+            self.abre_tela()
 
 

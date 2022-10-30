@@ -12,6 +12,14 @@ class ControllerClientes:
     
     def inclui_cliente(self):
         dados_cliente = self.__tela_clientes.pega_dados_cliente()
+        if dados_cliente == None:
+            return
+            
+        for cliente in self.__clientes:
+            if cliente.cpf ==  dados_cliente['cpf_cliente']:
+                self.__tela_clientes.cliente_ja_cadastrado()
+                return
+                
         self.__clientes.append(Cliente(dados_cliente['nome_cliente'],
         dados_cliente['data_nascimento_cliente'],
         dados_cliente['cpf_cliente'],
