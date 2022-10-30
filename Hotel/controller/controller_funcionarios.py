@@ -10,12 +10,16 @@ class ControllerFuncionarios:
 
     def inclui_funcionario(self):
         dados_funcionario = self.__tela_funcionarios.pega_dados_funcionario()
+        if dados_funcionario == None:
+            return
         self.__funcionarios.append(Funcionario(dados_funcionario['nome_funcionario'],
                                                dados_funcionario['data_nascimento_funcionario'],
                                                dados_funcionario['cracha_do_funcionario']))
 
     def altera_funcionario(self):
         numero_cracha = self.__tela_funcionarios.pega_funcionario_por_cracha()
+        if numero_cracha == None:
+            return
         for funcionario in self.__funcionarios:
             if funcionario.cracha == numero_cracha:
                 funcionario_atualizado = self.__tela_funcionarios.altera_funcionario()
@@ -28,6 +32,9 @@ class ControllerFuncionarios:
 
     def excluir_funcionario(self):
         numero_cracha = self.__tela_funcionarios.pega_funcionario_por_cracha()
+        if numero_cracha == None:
+            return
+
         for funcionario in self.__funcionarios:
             if funcionario.cracha == numero_cracha:
                 self.__funcionarios.remove(funcionario)
@@ -38,6 +45,9 @@ class ControllerFuncionarios:
 
     def busca_funcionario(self):
         numero_cracha = self.__tela_funcionarios.pega_funcionario_por_cracha()
+        if numero_cracha == None:
+            return
+
         for funcionario in self.__funcionarios:
             if funcionario.cracha == numero_cracha:
                 dados_funcionario = {
@@ -74,7 +84,7 @@ class ControllerFuncionarios:
         try:
             while True:
                 lista_opcoes[self.__tela_funcionarios.abre_tela()]()
-        
+
         except Exception:
             self.__tela_funcionarios.opcao_invalida()
             self.abre_tela()

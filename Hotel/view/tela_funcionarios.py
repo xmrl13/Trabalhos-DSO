@@ -20,14 +20,34 @@ class TelaFuncionarios():
     def pega_funcionario_por_cracha(self):
         cracha_funcionario = input(
             'Digite o Numero de cracha do funcionario: ')
+        verifica_cracha = cracha_funcionario.isnumeric()
+        if not verifica_cracha:
+            print()
+            print('DIGITE SOMENTE NUMEROS PARA BUSCAR O CRACHA')
+            return None
+        
+        cracha_funcionario = int(cracha_funcionario)
         return cracha_funcionario
 
     def pega_dados_funcionario(self):
         print('CADASTRO DO FUNCIONARIO')
-        nome_funcionario = input('Nome do Funcionario: ')
+        nome_funcionario = (input('Nome do Funcionario: '))
+        verifica_nome_funcionario = nome_funcionario.isalpha()
+        if not verifica_nome_funcionario:
+            print()
+            print('DIGITE SOMENTE LETRAS PARA CADASTRAR CLIENTE')
+            return None
+
         data_nascimento_funcionario = input(
             'Data de nascimento do Funcionario: ')
         cracha = input('Numero de cracha do Funcionario: ')
+        verifica_cadastro =cracha.isnumeric()
+        if not verifica_cadastro:
+            print()
+            print('DIGITE SOMENTE NUMEROS PARA CADASTRAR CRACHA')
+            return None
+        cracha = int(cracha)
+
         return {
             'nome_funcionario': nome_funcionario,
             'data_nascimento_funcionario': data_nascimento_funcionario,
