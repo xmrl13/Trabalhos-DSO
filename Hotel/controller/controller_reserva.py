@@ -68,6 +68,7 @@ class ControllerReserva:
             for reservas_efetuadas in dias_reservados:
                 if intervalo_para_conferir.is_intersection(reservas_efetuadas):
                     dias_reservados.remove(intervalo_para_conferir)
+                    self.__tela_reserva.reserva_excluida()
                     return
         except:
             self.__tela_reserva()

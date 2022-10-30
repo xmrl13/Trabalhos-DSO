@@ -35,7 +35,7 @@ class TelaFuncionarios():
         verifica_nome_funcionario = nome_funcionario.isalpha()
         if not verifica_nome_funcionario:
             print()
-            print('DIGITE SOMENTE LETRAS PARA CADASTRAR CLIENTE')
+            print('DIGITE SOMENTE LETRAS PARA CADASTRAR FUNCIONARIO')
             return None
 
         data_nascimento_funcionario = input(
@@ -89,3 +89,12 @@ class TelaFuncionarios():
         print(20 * '*')
         print('POR FAVOR DIGITE UM VALOR NÚMERICO E DENTRO DO INTERVALO VÁLIDO!')
         print(20 * '*')
+    
+    def funcionario_exitente(self):
+        print(20 * '*')
+        print('Funcionario com mesmo numero de cracha já existente')
+        print(20 * '*')
+
+    def sem_funcionarios_cadastrados(self):
+        print('Sem funcionarios cadastrados!')
+        

@@ -39,6 +39,9 @@ class TelaReserva():
         print('Reserva efetuada com sucesso.')
         return
     
+    def reserva_excluida(self):
+        print('Reserva excluida com sucesso!')
+    
     def data_errada(self):
         print(5 * '*')
         print('Data inexistente inserida.')

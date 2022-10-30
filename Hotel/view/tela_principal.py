@@ -46,4 +46,5 @@ class TelaPrincipal:
         print(20 * '*')
         print('ANDAR CADASTRADOS NO SITEMA')
     
+
     

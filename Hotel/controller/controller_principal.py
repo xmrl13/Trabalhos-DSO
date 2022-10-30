@@ -75,7 +75,7 @@ class ControllerPrincipal:
         self.__tela_principal.relatorio_clientes()
         self.__controller_clientes.lista_cliente()
 
-        self.__tela_principal.relatorio_quartos()
+        self.__tela_principal.relatorio_quarto()
         self.__controller_quarto.lista_quartos()
 
         self.__tela_principal.relatorio_andar()

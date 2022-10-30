@@ -12,6 +12,12 @@ class ControllerFuncionarios:
         dados_funcionario = self.__tela_funcionarios.pega_dados_funcionario()
         if dados_funcionario == None:
             return
+
+        for funcionario in self.__funcionarios:
+            if funcionario.cracha == dados_funcionario['cracha_do_funcionario']:
+                self.__tela_funcionarios.funcionario_exitente()
+                return
+
         self.__funcionarios.append(Funcionario(dados_funcionario['nome_funcionario'],
                                                dados_funcionario['data_nascimento_funcionario'],
                                                dados_funcionario['cracha_do_funcionario']))
@@ -61,6 +67,10 @@ class ControllerFuncionarios:
         self.__tela_funcionarios.reclama_funcionario()
 
     def lista_funcionario(self):
+        if not self.__funcionarios:
+            self.__tela_funcionarios.sem_funcionarios_cadastrados()
+            return 
+
         if self.__funcionarios is None:
             self.__tela_funcionarios.reclama_funcionario()
             return
