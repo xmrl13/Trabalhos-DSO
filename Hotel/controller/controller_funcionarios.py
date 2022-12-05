@@ -52,7 +52,7 @@ class ControllerFuncionarios:
     def busca_funcionario(self):
         numero_cracha = self.__tela_funcionarios.pega_funcionario_por_cracha()
         if numero_cracha == None:
-            return
+            return None
 
         for funcionario in self.__funcionarios:
             if funcionario.cracha == numero_cracha:
@@ -62,9 +62,10 @@ class ControllerFuncionarios:
                     'numero_do_cracha': funcionario.cracha
                 }
                 self.__tela_funcionarios.mostra_funcionario(dados_funcionario)
-                return
+                return dados_funcionario
 
         self.__tela_funcionarios.reclama_funcionario()
+        return None
 
     def lista_funcionario(self):
         if not self.__funcionarios:

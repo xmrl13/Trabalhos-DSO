@@ -74,9 +74,7 @@ class ControllerQuarto:
             self.__tela_quarto.mostra_quartos(dados_quarto)
 
     def adiciona_reserva(self, quarto, intervalo_reservado):
-        for quarto in self.__quartos:
-            if quarto in self.__quartos:
-                quarto.adiciona_reserva(intervalo_reservado)
+        quarto.adiciona_reserva(intervalo_reservado)
 
     def retornar(self):
         self.__controller_principal.abre_tela()

@@ -31,3 +31,4 @@ class Cliente(Pessoa):
 	@telefone.setter
 	def telefone(self,telefone):
 		self.__telefone = telefone
+

@@ -32,6 +32,7 @@ class Quarto:
 	def dias_reservados(self):
 		return self.__dias_reservados
 
+
 	def add_mobilia(self, descricao: str, quantidade: int):
 		mobilia = Mobilia(descricao, quantidade)
 		self.__mobilias.append(mobilia)

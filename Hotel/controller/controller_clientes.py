@@ -46,6 +46,7 @@ class ControllerClientes:
             return
         cliente = self.busca_cliente_por_cpf()
         if cliente in self.__clientes:
+
             self.__clientes.remove(cliente)
             self.__tela_clientes.cliente_removido()
             return

@@ -18,7 +18,11 @@ class ControllerReserva:
             quarto = self.__controller_principal.controller_quarto.busca_quarto_por_numero()
             if quarto is None:
                 return
+            funcionario = self.__controller_principal.controller_funcionarios.busca_funcionario()
+            if funcionario is None:
+                return
             reservas = self.__controller_principal.controller_quarto.retorna_reservas(quarto)
+
             data_da_reserva = self.__tela_reserva.pega_data_da_reserva()
             entrada_reserva = datetime.datetime(
                 data_da_reserva['ano_entrada'],
