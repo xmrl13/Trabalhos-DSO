@@ -97,6 +97,7 @@ class ControllerReserva:
         nova_data_da_reserva['dia_saida'])
 
         intervalo_para_conferir = datetimerange.DateTimeRange(entrada_para_conferir, saida_para_conferir)
+        print(intervalo_para_conferir)
 
         for reservas_efetuadas in dias_reservados:
             if intervalo_para_conferir.is_intersection(reservas_efetuadas):
