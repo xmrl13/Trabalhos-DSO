@@ -43,7 +43,10 @@ class ControllerClientes:
                 cliente.email_cliente = novos_dados['email_cliente']
                 cliente.telefone = novos_dados['fone_cliente']
             self.__tela_clientes.cliente_alterado()
-    
+            '''
+            dsadasasd
+            '''
+
     def excluir_cliente(self):
         if not self.__cliente_dao.get_all():
             self.__tela_clientes.sem_cliente_cadastrado()
