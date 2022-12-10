@@ -25,36 +25,44 @@ class ControllerFuncionarios:
             self.__funcionario_dao.add(funcionario_criado)
 
     def altera_funcionario(self):
-        numero_cracha = self.__tela_funcionarios.pega_funcionario_por_cracha()
+        resposta ,numero_cracha = self.__tela_funcionarios.pega_funcionario_por_cracha()
+
+        if resposta != 'salvar':
+            return
+
         if numero_cracha == None:
             return
-        for funcionario in self.__funcionarios:
+
+        for funcionario in self.__funcionario_dao.get_all():
             if funcionario.cracha == numero_cracha:
                 funcionario_atualizado = self.__tela_funcionarios.altera_funcionario()
                 funcionario.nome = funcionario_atualizado['nome_funcionario']
                 funcionario.data_nascimento = funcionario_atualizado['data_nascimento_funcionario']
                 funcionario.cracha = funcionario_atualizado['cracha_do_funcionario']
+                self.__funcionario_dao.add(funcionario.cracha, funcionario)
                 self.__tela_funcionarios.confirma_funcionario()
                 return
         self.__tela_funcionarios.reclama_funcionario()
 
     def excluir_funcionario(self):
-        numero_cracha = self.__tela_funcionarios.pega_funcionario_por_cracha()
+        resposta, numero_cracha = self.__tela_funcionarios.pega_funcionario_por_cracha()
+
+        if resposta != 'salvar':
+            return
+
         if numero_cracha == None:
             return
 
-        for funcionario in self.__funcionarios:
-            if funcionario.cracha == numero_cracha:
-                self.__funcionarios.remove(funcionario)
+        for funcionario in self.__funcionario_dao.get_all():
+            if funcionario.cracha == numero_cracha['cracha']:
+                self.__funcionario_dao.remove(funcionario.cracha)
                 self.__tela_funcionarios.confirma_funcionario()
                 return
 
         self.__tela_funcionarios.reclama_funcionario()
 
     def busca_funcionario(self):
-        numero_cracha = self.__tela_funcionarios.pega_funcionario_por_cracha()
-        if numero_cracha == None:
-            return None
+        pass
 
         for funcionario in self.__funcionarios:
             if funcionario.cracha == numero_cracha:
@@ -100,8 +108,13 @@ class ControllerFuncionarios:
         }
         #try:
         while True:
-            lista_opcoes[self.__tela_funcionarios.abre_tela()]()
+            resposta, dados = self.__tela_funcionarios.abre_tela()
 
-        #except Exception:
-            '''self.__tela_funcionarios.opcao_invalida()
+            if resposta != 'salvar':
+                self.retornar()
+
+
+
+        '''except Exception:
+            self.__tela_funcionarios.opcao_invalida()
             self.abre_tela()'''
