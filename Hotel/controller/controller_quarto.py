@@ -31,14 +31,17 @@ class ControllerQuarto:
             return quarto.dias_reservados
 
     def excluir_quarto(self):
+        
         if self.__quarto_dao is None:
             return
+
         quarto_recebido = self.__tela_quarto.pega_quarto_por_numero()
         for quarto in self.__quarto_dao.get_all():
             if quarto.numero_do_quarto == quarto_recebido:
                 self.__quarto_dao.remove(quarto.numero_do_quarto)
-                self.__controller_principal.controller_andar.andar.remove_quarto(quarto_recebido)
+                self.__controller_principal.controller_andar.excluir_quarto_do_andar(quarto)
                 self.__tela_quarto.quarto_excluido()
+                self.__quarto_dao.save()
                 self.lista_quartos()
                 return
         self.__tela_quarto.sem_quartos_cadastrados()

@@ -63,8 +63,6 @@ class TelaQuarto:
 
     def quarto_excluido(self):
         print(20 * '*')
-        print('Podem haver reservas inseridas nesse quarto, lembre-se de verificar e se necessário excluir.')
-        print('Este quarto pode estar inserido em um andar, lembre-se de verificar e se necessário excluir.')
         print('Quarto excluido com sucessso')
         print(20 * '*')
 

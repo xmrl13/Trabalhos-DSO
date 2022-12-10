@@ -34,3 +34,6 @@ class Andar:
             if quarto_1 == quarto:
                 # Renomeei o indice do pop, estava: .pop(quarto), renomeei para .pop(quarto_1)
                 self.__quartos.remove(quarto_1)
+    
+    def retornar_todos_os_quartos(self):
+        return self.__quartos
