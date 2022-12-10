@@ -1,6 +1,5 @@
 from Hotel.DAO.dao import Dao
 from Hotel.model.funcionario import Funcionario
-
 class FuncionarioDao(Dao):
     def __init__(self):
         super().__init__('funcionarios.pkl')

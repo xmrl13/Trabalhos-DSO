@@ -1,4 +1,4 @@
-from model.pessoa import Pessoa
+from Hotel.model.pessoa import Pessoa
 
 class Funcionario(Pessoa):
 

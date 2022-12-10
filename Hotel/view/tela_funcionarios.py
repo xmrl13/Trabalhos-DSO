@@ -1,4 +1,4 @@
-
+import PySimpleGUI as sg
 
 class TelaFuncionarios():
     def abre_tela(self):
@@ -29,7 +29,7 @@ class TelaFuncionarios():
         cracha_funcionario = int(cracha_funcionario)
         return cracha_funcionario
 
-    def pega_dados_funcionario(self):
+    '''def pega_dados_funcionario(self):
         print('CADASTRO DO FUNCIONARIO')
         nome_funcionario = (input('Nome do Funcionario: '))
         verifica_nome_funcionario = nome_funcionario.isalpha()
@@ -52,8 +52,22 @@ class TelaFuncionarios():
             'nome_funcionario': nome_funcionario,
             'data_nascimento_funcionario': data_nascimento_funcionario,
             'cracha_do_funcionario': cracha
-        }
-    
+        }'''
+
+    def pega_dados_funcionario(self):
+        layout = [
+            [sg.Text('Dados Funcionario')],
+            [sg.Text('Nome', size=(15, 1)), sg.InputText(key='nome_funcionario')],
+            [sg.Text('Data de Nascimento', size=(15, 1)), sg.InputText(key='data_nascimento_funcionario')],
+            [sg.Text('Cracha', size=(15, 1)), sg.InputText(key='cracha_do_funcionario')],
+            [sg.Submit('salvar'), sg.Cancel()]
+        ]
+        windows = sg.Window('Cadastro de Funcionario').Layout(layout)
+        button, values = windows.Read()
+        windows.close()
+        return button, values
+
+
     def altera_funcionario(self):
         print('ALTERAR DADOS DO FUNCIONARIO')
         nome_funcionario = input('Nome do Funcionario: ')

@@ -4,3 +4,4 @@ if __name__ == "__main__":
 	ControllerPrincipal().inicializa_sistema()
 
 # pip install datetime range
+# pip install PySimpleGui

@@ -1,9 +1,10 @@
 import pickle
 from abc import ABC, abstractmethod
 
+
 class Dao(ABC):
     @abstractmethod
-    def __int__(self, datasource=''):
+    def __init__(self, datasource=''):
         self.__datasource = datasource
         self.__cache = {}
         try:
@@ -36,3 +37,4 @@ class Dao(ABC):
 
     def get_all(self):
         return self.__cache.values()
+

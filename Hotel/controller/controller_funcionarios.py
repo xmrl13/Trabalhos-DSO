@@ -1,26 +1,28 @@
-from view.tela_funcionarios import TelaFuncionarios
-from model.funcionario import Funcionario
-
+from Hotel.view.tela_funcionarios import TelaFuncionarios
+from Hotel.model.funcionario import Funcionario
+from Hotel.DAO.funcionario_dao import FuncionarioDao
 
 class ControllerFuncionarios:
     def __init__(self, controller_principal):
         self.__controller_principal = controller_principal
         self.__tela_funcionarios = TelaFuncionarios()
-        self.__funcionarios = []
+        self.__funcionario_dao = FuncionarioDao()
 
     def inclui_funcionario(self):
-        dados_funcionario = self.__tela_funcionarios.pega_dados_funcionario()
-        if dados_funcionario == None:
-            return
-
-        for funcionario in self.__funcionarios:
-            if funcionario.cracha == dados_funcionario['cracha_do_funcionario']:
-                self.__tela_funcionarios.funcionario_exitente()
+        resposta, dados_funcionario = self.__tela_funcionarios.pega_dados_funcionario()
+        if resposta == 'salvar':
+            if dados_funcionario == None:
                 return
+            print(dados_funcionario)
 
-        self.__funcionarios.append(Funcionario(dados_funcionario['nome_funcionario'],
-                                               dados_funcionario['data_nascimento_funcionario'],
-                                               dados_funcionario['cracha_do_funcionario']))
+            funcionarios = self.__funcionario_dao.get_all()
+            print(funcionarios)
+
+            funcionario_criado = Funcionario(dados_funcionario['nome_funcionario'],
+                                                   dados_funcionario['data_nascimento_funcionario'],
+                                                   dados_funcionario['cracha_do_funcionario'])
+
+            self.__funcionario_dao.add(funcionario_criado)
 
     def altera_funcionario(self):
         numero_cracha = self.__tela_funcionarios.pega_funcionario_por_cracha()
@@ -68,15 +70,15 @@ class ControllerFuncionarios:
         return None
 
     def lista_funcionario(self):
-        if not self.__funcionarios:
+        if not self.__funcionario_dao.get_all():
             self.__tela_funcionarios.sem_funcionarios_cadastrados()
             return 
 
-        if self.__funcionarios is None:
+        if self.__funcionario_dao.get_all() is None:
             self.__tela_funcionarios.reclama_funcionario()
             return
             
-        for funcionario in self.__funcionarios:
+        for funcionario in self.__funcionario_dao.get_all():
             dados_funcionario = {
                 'data_nascimento_funcionario': funcionario.data_nascimento,
                 'nome_funcionario': funcionario.nome,
@@ -96,10 +98,10 @@ class ControllerFuncionarios:
             5: self.lista_funcionario,
             0: self.retornar
         }
-        try:
-            while True:
-                lista_opcoes[self.__tela_funcionarios.abre_tela()]()
+        #try:
+        while True:
+            lista_opcoes[self.__tela_funcionarios.abre_tela()]()
 
-        except Exception:
-            self.__tela_funcionarios.opcao_invalida()
-            self.abre_tela()
+        #except Exception:
+            '''self.__tela_funcionarios.opcao_invalida()
+            self.abre_tela()'''
