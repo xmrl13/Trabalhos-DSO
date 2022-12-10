@@ -2,20 +2,22 @@ import PySimpleGUI as sg
 
 class TelaFuncionarios():
     def abre_tela(self):
-        print(20 * '*')
-        print("FUNCIONARIOS")
-        print(20 * '*')
-        print(" Escolha a opçao ")
-        print("1 - Incluir funcionario")
-        print("2 - Alterar funcionario")
-        print("3 - Excluir funcionario")
-        print("4 - Busca funcionario")
-        print("5 - Listar funcionarios")
-        print("0 - Retornar")
-
-        opcao = int(input("Escolha a opcao: "))
-
-        return opcao
+        sg.ChangeLookAndFeel('DarkTeal4')
+        layout = [
+            [sg.Text('-------- Funcionario ----------', font=("Helvica", 25))],
+            [sg.Text('Escolha sua opção', font=("Helvica", 15))],
+            [sg.Radio('Incluir funcionario', "RD1", key='1')],
+            [sg.Radio('Alterar funcionario', "RD1", key='2')],
+            [sg.Radio('Excluir funcionario', "RD1", key='3')],
+            [sg.Radio('Busca funcionario', "RD1", key='4')],
+            [sg.Radio('Listar funcionarios', "RD1", key='5')],
+            [sg.Radio('Retornar', "RD1", key='0')],
+            [sg.Button('salvar'), sg.Cancel('Cancelar')]
+        ]
+        windows = sg.Window('Sistema de livros').Layout(layout)
+        button,values = windows.Read()
+        windows.close()
+        return button, values
 
     def pega_funcionario_por_cracha(self):
         layout = [
