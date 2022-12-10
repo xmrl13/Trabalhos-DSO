@@ -31,25 +31,18 @@ class ControllerClientes:
 
 
     def altera_cliente(self):
-        cliente = self.busca_cliente_por_cpf()
-        if cliente is None:
-            return
-            
-        if cliente in self.__cliente_dao.get_all():
-                cliente_atualizado = self.__tela_clientes.pega_dados_cliente()
-                cliente.nome = cliente_atualizado['nome_cliente']
-                cliente.data_nascimento = cliente_atualizado['data_nascimento_cliente']
-                cliente.cpf = cliente_atualizado['cpf_cliente']
-                cliente.email = cliente_atualizado['email_cliente']
-                cliente.telefone = cliente_atualizado['fone_cliente']
-                self.__cliente_dao.add(
-                    Cliente(cliente_atualizado['nome_cliente'],
-                    cliente_atualizado['data_nascimento_cliente'],
-                    cliente_atualizado['cpf_cliente'],
-                    cliente_atualizado['email_cliente'],
-                    cliente_atualizado['fone_cliente']))
-                
-        self.__tela_clientes.cliente_alterado()      
+
+        cpf = self.__tela_clientes.pega_cliente_por_cpf()
+        for cliente in self.__cliente_dao.get_all():
+            if cpf == cliente.cpf:
+                novos_dados = self.__tela_clientes.pega_dados_cliente()
+                cliente_atualizado = Cliente
+                (novos_dados['nome_cliente'],
+                novos_dados['data_nascimento_cliente'],
+                novos_dados['cpf_cliente'],
+                novos_dados['email_cliente'],
+                novos_dados['fone_cliente'])
+                self.__cliente_dao.add(cliente_atualizado[cliente.cpf])   
     
     def excluir_cliente(self):
         if not self.__cliente_dao.get_all():
