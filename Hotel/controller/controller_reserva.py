@@ -31,7 +31,7 @@ class ControllerReserva:
         nova_data_da_reserva = {
             'ano_entrada': int(data_da_reserva['ano_entrada']),
             'mes_entrada': int(data_da_reserva['mes_entrada']),
-            'dia_entrada': int(data_da_reserva['adia_entrada']),
+            'dia_entrada': int(data_da_reserva['dia_entrada']),
             'ano_saida': int(data_da_reserva['ano_saida']),
             'mes_saida': int(data_da_reserva['mes_saida']),
             'dia_saida': int(data_da_reserva['dia_saida']),
