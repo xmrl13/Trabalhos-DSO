@@ -77,8 +77,11 @@ class ControllerFuncionarios:
         for funcionario in self.__funcionario_dao.get_all():
             if funcionario.cracha == numero_cracha['cracha']:
                 self.__tela_funcionarios.mostra_funcionario(funcionario)
+                return funcionario
 
-        pass
+        self.__tela_funcionarios.reclama_funcionario()
+
+
 
     def lista_funcionario(self):
         if not self.__funcionario_dao.get_all():
