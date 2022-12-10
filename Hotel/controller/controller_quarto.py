@@ -37,6 +37,7 @@ class ControllerQuarto:
         for quarto in self.__quarto_dao.get_all():
             if quarto.numero_do_quarto == quarto_recebido:
                 self.__quarto_dao.remove(quarto.numero_do_quarto)
+                self.__controller_principal.controller_andar.andar.remove_quarto(quarto_recebido)
                 self.__tela_quarto.quarto_excluido()
                 self.lista_quartos()
                 return

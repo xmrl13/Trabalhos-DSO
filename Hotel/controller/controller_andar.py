@@ -87,10 +87,12 @@ class ControllerAndar:
     def abre_tela(self):
         lista_opcoes = {1: self.inclui_andar, 2:self.add_quarto_no_andar , 3: self.excluir_andar,
                         4: self.lista_andar, 0: self.retornar}
-        try:
-            while True:
-                opcao = self.__tela_andar.abre_tela()
-                lista_opcoes[opcao]()
-        except Exception:
+
+        #try:
+        while True:
+            opcao = self.__tela_andar.abre_tela()
+            lista_opcoes[opcao]()
+
+        '''except Exception:
             self.__tela_andar.opcao_invalida()
-            self.abre_tela()
+            self.abre_tela()'''

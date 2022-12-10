@@ -88,22 +88,17 @@ class ControllerReserva:
     def abre_tela(self):
         lista_opcoes = {1: self.inclui_reserva, 2: self.excluir_reserva, 0: self.retornar}
 
-        try:
-            while True:
-                resposta, dados = self.__tela_reserva.abre_tela()
+        while True:
+            resposta, dados = self.__tela_reserva.abre_tela()
+            print(dados)
+            if resposta != 'salvar':
+                self.retornar()
 
-                if resposta != 'salvar':
-                    self.retornar()
+            if dados['1']:
+                lista_opcoes[1]()
 
-                if dados['1']:
-                    lista_opcoes[1]()
+            if dados['2']:
+                lista_opcoes[2]()
 
-                if dados['2']:
-                    lista_opcoes[2]()
-
-                if dados['0']:
-                    lista_opcoes[0]()
-
-        except Exception:
-            self.__tela_reserva.opcao_invalida()
-            self.abre_tela()
+            if dados['0']:
+                lista_opcoes[0]()
