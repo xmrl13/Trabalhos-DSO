@@ -102,3 +102,4 @@ class ControllerReserva:
 
             if dados['0']:
                 lista_opcoes[0]()
+
