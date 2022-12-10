@@ -69,6 +69,15 @@ class ControllerFuncionarios:
         self.__tela_funcionarios.reclama_funcionario()
 
     def busca_funcionario(self):
+        resposta, numero_cracha = self.__tela_funcionarios.pega_funcionario_por_cracha()
+
+        if resposta != 'salvar':
+            return
+        
+        for funcionario in self.__funcionario_dao.get_all():
+            if funcionario.cracha == numero_cracha['cracha']:
+                self.__tela_funcionarios.mostra_funcionario(funcionario)
+
         pass
 
     def lista_funcionario(self):
