@@ -61,7 +61,11 @@ class TelaFuncionarios():
 
 
     def mostra_funcionario(self, funcionario):
-        pass
+        print(20 * '*')
+        print(funcionario.nome)
+        print(funcionario.data_nascimento)
+        print(funcionario.cracha)
+        print(20 * '*')
 
     def reclama_funcionario(self):
         print(20 * '*')

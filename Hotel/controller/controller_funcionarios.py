@@ -13,10 +13,11 @@ class ControllerFuncionarios:
         if resposta == 'salvar':
             if dados_funcionario == None:
                 return
-            print(dados_funcionario)
 
-            funcionarios = self.__funcionario_dao.get_all()
-            print(funcionarios)
+            for funcionario in self.__funcionario_dao.get_all():
+                if funcionario.cracha == dados_funcionario['cracha_do_funcionario']:
+                    self.__tela_funcionarios.reclama_funcionario()
+                    return
 
             funcionario_criado = Funcionario(dados_funcionario['nome_funcionario'],
                                                    dados_funcionario['data_nascimento_funcionario'],
@@ -29,18 +30,24 @@ class ControllerFuncionarios:
 
         if resposta != 'salvar':
             return
-
+        print('salvar confere')
         if numero_cracha == None:
             return
-
+        print('valor confere')
         for funcionario in self.__funcionario_dao.get_all():
-            if funcionario.cracha == numero_cracha:
-                funcionario_atualizado = self.__tela_funcionarios.altera_funcionario()
+            if funcionario.cracha == numero_cracha['cracha']:
+                resposta, funcionario_atualizado = self.__tela_funcionarios.altera_funcionario(funcionario)
+
+                if resposta != 'salvar':
+                    return
+
                 funcionario.nome = funcionario_atualizado['nome_funcionario']
                 funcionario.data_nascimento = funcionario_atualizado['data_nascimento_funcionario']
                 funcionario.cracha = funcionario_atualizado['cracha_do_funcionario']
-                self.__funcionario_dao.add(funcionario.cracha, funcionario)
+
+                self.__funcionario_dao.add(funcionario)
                 self.__tela_funcionarios.confirma_funcionario()
+
                 return
         self.__tela_funcionarios.reclama_funcionario()
 
@@ -64,19 +71,6 @@ class ControllerFuncionarios:
     def busca_funcionario(self):
         pass
 
-        for funcionario in self.__funcionarios:
-            if funcionario.cracha == numero_cracha:
-                dados_funcionario = {
-                    'nome_funcionario': funcionario.nome,
-                    'data_nascimento_funcionario': funcionario.data_nascimento,
-                    'numero_do_cracha': funcionario.cracha
-                }
-                self.__tela_funcionarios.mostra_funcionario(dados_funcionario)
-                return dados_funcionario
-
-        self.__tela_funcionarios.reclama_funcionario()
-        return None
-
     def lista_funcionario(self):
         if not self.__funcionario_dao.get_all():
             self.__tela_funcionarios.sem_funcionarios_cadastrados()
@@ -87,12 +81,7 @@ class ControllerFuncionarios:
             return
             
         for funcionario in self.__funcionario_dao.get_all():
-            dados_funcionario = {
-                'data_nascimento_funcionario': funcionario.data_nascimento,
-                'nome_funcionario': funcionario.nome,
-                'numero_do_cracha': funcionario.cracha
-            }
-            self.__tela_funcionarios.mostra_funcionario(dados_funcionario)
+            self.__tela_funcionarios.mostra_funcionario(funcionario)
 
     def retornar(self):
         self.__controller_principal.abre_tela()
@@ -112,6 +101,24 @@ class ControllerFuncionarios:
 
             if resposta != 'salvar':
                 self.retornar()
+
+            if dados['1']:
+                lista_opcoes[1]()
+
+            if dados['2']:
+                lista_opcoes[2]()
+
+            if dados['3']:
+                lista_opcoes[3]()
+
+            if dados['4']:
+                lista_opcoes[4]()
+
+            if dados['5']:
+                lista_opcoes[5]()
+
+            if dados['0']:
+                lista_opcoes[0]()
 
 
 
