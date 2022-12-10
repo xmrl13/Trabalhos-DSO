@@ -57,30 +57,30 @@ class ControllerReserva:
             
 
     def excluir_reserva(self):
-        try:
-            quarto = self.__controller_principal.controller_quarto.busca_quarto_por_numero()
-            dias_reservados = self.__controller_principal.controller_quarto.retorna_reservas(quarto)
-            data_para_conferir = self.__tela_reserva.pega_data_da_reserva()
-            entrada_para_conferir = datetime.datetime(
-            data_para_conferir['ano_entrada'],
-            data_para_conferir['mes_entrada'],
-            data_para_conferir['dia_entrada'])
+        #try:
+        quarto = self.__controller_principal.controller_quarto.busca_quarto_por_numero()
+        dias_reservados = self.__controller_principal.controller_quarto.retorna_reservas(quarto)
+        data_para_conferir = self.__tela_reserva.pega_data_da_reserva()
+        entrada_para_conferir = datetime.datetime(
+        data_para_conferir['ano_entrada'],
+        data_para_conferir['mes_entrada'],
+        data_para_conferir['dia_entrada'])
 
-            saida_para_conferir = datetime.datetime(
-            data_para_conferir['ano_saida'],
-            data_para_conferir['mes_saida'],
-            data_para_conferir['dia_saida'])
+        saida_para_conferir = datetime.datetime(
+        data_para_conferir['ano_saida'],
+        data_para_conferir['mes_saida'],
+        data_para_conferir['dia_saida'])
 
-            intervalo_para_conferir = datetimerange.DateTimeRange(entrada_para_conferir, saida_para_conferir)
+        intervalo_para_conferir = datetimerange.DateTimeRange(entrada_para_conferir, saida_para_conferir)
 
-            for reservas_efetuadas in dias_reservados:
-                if intervalo_para_conferir.is_intersection(reservas_efetuadas):
-                    dias_reservados.remove(intervalo_para_conferir)
-                    self.__tela_reserva.reserva_excluida()
-                    return
-        except:
+        for reservas_efetuadas in dias_reservados:
+            if intervalo_para_conferir.is_intersection(reservas_efetuadas):
+                dias_reservados.remove(intervalo_para_conferir)
+                self.__tela_reserva.reserva_excluida()
+                return
+        '''except:
             self.__tela_reserva()
-            self.abre_tela()
+            self.abre_tela()'''
 
     def retornar(self):
         self.__controller_principal.abre_tela()

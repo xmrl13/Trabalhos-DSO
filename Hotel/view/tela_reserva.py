@@ -39,16 +39,16 @@ class TelaReserva():
 
 
     def reclama_reserva(self):
-        sg.Popup('             Reserva             ', 'Intervalo já Reservado')
+        sg.Popup('_____________ Reserva _____________', 'Intervalo já Reservado')
         
     
     def confirma_reserva(self):
-        sg.Popup('             Reserva             ', 'Reserva efetuada com sucesso')
+        sg.Popup('_____________ Reserva _____________', 'Reserva efetuada com sucesso')
         
     
     def reserva_excluida(self):
-        sg.Popup('             Reserva             ', 'Reserva excluida com sucesso!')
+        sg.Popup('_____________ Reserva _____________', 'Reserva excluida com sucesso!')
     
     def data_errada(self):
-        sg.Popup('             Reserva             ', 'Data inexistente inserida')
+        sg.Popup('_____________ Reserva _____________', 'Data inexistente inserida')
     
