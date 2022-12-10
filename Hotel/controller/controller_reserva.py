@@ -11,7 +11,7 @@ class ControllerReserva:
         self.__tela_reserva = TelaReserva()
 
     def inclui_reserva(self):
-        try:
+        #try:
             cliente = self.__controller_principal.controller_clientes.busca_cliente_por_cpf()
             if cliente is None:
                 return
@@ -51,9 +51,9 @@ class ControllerReserva:
                 else:
                     self.__controller_principal.controller_quarto.adiciona_reserva(quarto, intervalo_reservado)
                     self.__tela_reserva.confirma_reserva()
-        except:
+        '''except:
             self.__tela_reserva.data_errada()
-            self.abre_tela()
+            self.abre_tela()'''
             
 
     def excluir_reserva(self):
