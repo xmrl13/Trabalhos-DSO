@@ -32,17 +32,17 @@ class ControllerClientes:
 
     def altera_cliente(self):
 
-        cpf = self.__tela_clientes.pega_cliente_por_cpf()
-        for cliente in self.__cliente_dao.get_all():
-            if cpf == cliente.cpf:
+        cliente = self.busca_cliente_por_cpf()
+
+        for cliente_loop in self.__cliente_dao.get_all():
+            if cliente_loop.cpf == cliente.cpf:
                 novos_dados = self.__tela_clientes.pega_dados_cliente()
-                cliente_atualizado = Cliente
-                (novos_dados['nome_cliente'],
-                novos_dados['data_nascimento_cliente'],
-                novos_dados['cpf_cliente'],
-                novos_dados['email_cliente'],
-                novos_dados['fone_cliente'])
-                self.__cliente_dao.add(cliente_atualizado[cliente.cpf])   
+                cliente.nome = novos_dados['nome_cliente']
+                cliente.data_nascimento = novos_dados['data_nascimento_cliente']
+                cliente.cpf = novos_dados['cpf_cliente']
+                cliente.email_cliente = novos_dados['email_cliente']
+                cliente.telefone = novos_dados['fone_cliente']
+            self.__tela_clientes.cliente_alterado()
     
     def excluir_cliente(self):
         if not self.__cliente_dao.get_all():
