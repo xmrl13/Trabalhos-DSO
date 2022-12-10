@@ -12,45 +12,45 @@ class ControllerReserva:
 
     def inclui_reserva(self):
         #try:
-            cliente = self.__controller_principal.controller_clientes.busca_cliente_por_cpf()
-            if cliente is None:
-                return
-            quarto = self.__controller_principal.controller_quarto.busca_quarto_por_numero()
-            if quarto is None:
-                return
-            funcionario = self.__controller_principal.controller_funcionarios.busca_funcionario()
-            if funcionario is None:
-                return
-            reservas = self.__controller_principal.controller_quarto.retorna_reservas(quarto)
+        cliente = self.__controller_principal.controller_clientes.busca_cliente_por_cpf()
+        if cliente is None:
+            return
+        quarto = self.__controller_principal.controller_quarto.busca_quarto_por_numero()
+        if quarto is None:
+            return
+        funcionario = self.__controller_principal.controller_funcionarios.busca_funcionario()
+        if funcionario is None:
+            return
+        reservas = self.__controller_principal.controller_quarto.retorna_reservas(quarto)
 
-            resposta, data_da_reserva = self.__tela_reserva.pega_data_da_reserva()
+        resposta, data_da_reserva = self.__tela_reserva.pega_data_da_reserva()
 
-            if resposta != 'salvar':
+        if resposta != 'salvar':
+            return
+
+        entrada_reserva = datetime.datetime(
+            data_da_reserva['ano_entrada'],
+            data_da_reserva['mes_entrada'],
+            data_da_reserva['dia_entrada'])
+
+        saida_reserva = datetime.datetime(
+            data_da_reserva['ano_saida'],
+            data_da_reserva['mes_saida'],
+            data_da_reserva['dia_saida'])
+        intervalo_reservado = datetimerange.DateTimeRange(entrada_reserva, saida_reserva)
+
+        if not reservas:
+            self.__controller_principal.controller_quarto.adiciona_reserva(quarto, intervalo_reservado)
+            self.__tela_reserva.confirma_reserva()
+            return
+
+        for reservas_efetuadas in reservas:
+            if intervalo_reservado.is_intersection(reservas_efetuadas):
+                self.__tela_reserva.reclama_reserva()
                 return
-
-            entrada_reserva = datetime.datetime(
-                data_da_reserva['ano_entrada'],
-                data_da_reserva['mes_entrada'],
-                data_da_reserva['dia_entrada'])
-                
-            saida_reserva = datetime.datetime(
-                data_da_reserva['ano_saida'],
-                data_da_reserva['mes_saida'],
-                data_da_reserva['dia_saida'])
-            intervalo_reservado = datetimerange.DateTimeRange(entrada_reserva, saida_reserva)
-
-            if not reservas:
+            else:
                 self.__controller_principal.controller_quarto.adiciona_reserva(quarto, intervalo_reservado)
                 self.__tela_reserva.confirma_reserva()
-                return
-            
-            for reservas_efetuadas in reservas:
-                if intervalo_reservado.is_intersection(reservas_efetuadas):
-                    self.__tela_reserva.reclama_reserva()
-                    return
-                else:
-                    self.__controller_principal.controller_quarto.adiciona_reserva(quarto, intervalo_reservado)
-                    self.__tela_reserva.confirma_reserva()
         '''except:
             self.__tela_reserva.data_errada()
             self.abre_tela()'''
