@@ -18,48 +18,9 @@ class TelaFuncionarios():
         return opcao
 
     def pega_funcionario_por_cracha(self):
-        cracha_funcionario = input(
-            'Digite o Numero de cracha do funcionario: ')
-        verifica_cracha = cracha_funcionario.isnumeric()
-        if not verifica_cracha:
-            print()
-            print('DIGITE SOMENTE NUMEROS PARA BUSCAR O CRACHA')
-            return None
-        
-        cracha_funcionario = int(cracha_funcionario)
-        return cracha_funcionario
-
-    '''def pega_dados_funcionario(self):
-        print('CADASTRO DO FUNCIONARIO')
-        nome_funcionario = (input('Nome do Funcionario: '))
-        verifica_nome_funcionario = nome_funcionario.isalpha()
-        if not verifica_nome_funcionario:
-            print()
-            print('DIGITE SOMENTE LETRAS PARA CADASTRAR FUNCIONARIO')
-            return None
-
-        data_nascimento_funcionario = input(
-            'Data de nascimento do Funcionario: ')
-        cracha = input('Numero de cracha do Funcionario: ')
-        verifica_cadastro =cracha.isnumeric()
-        if not verifica_cadastro:
-            print()
-            print('DIGITE SOMENTE NUMEROS PARA CADASTRAR CRACHA')
-            return None
-        cracha = int(cracha)
-
-        return {
-            'nome_funcionario': nome_funcionario,
-            'data_nascimento_funcionario': data_nascimento_funcionario,
-            'cracha_do_funcionario': cracha
-        }'''
-
-    def pega_dados_funcionario(self):
         layout = [
             [sg.Text('Dados Funcionario')],
-            [sg.Text('Nome', size=(15, 1)), sg.InputText(key='nome_funcionario')],
-            [sg.Text('Data de Nascimento', size=(15, 1)), sg.InputText(key='data_nascimento_funcionario')],
-            [sg.Text('Cracha', size=(15, 1)), sg.InputText(key='cracha_do_funcionario')],
+            [sg.Text('Cracha', size=(15, 1)), sg.InputText(key='cracha')],
             [sg.Submit('salvar'), sg.Cancel()]
         ]
         windows = sg.Window('Cadastro de Funcionario').Layout(layout)
@@ -68,26 +29,37 @@ class TelaFuncionarios():
         return button, values
 
 
-    def altera_funcionario(self):
-        print('ALTERAR DADOS DO FUNCIONARIO')
-        nome_funcionario = input('Nome do Funcionario: ')
-        data_nascimento_funcionario = input(
-            'Data de nascimento do Funcionario: ')
-        cracha = input('Numero de cracha do Funcionario: ')
-        return {
-            'nome_funcionario': nome_funcionario,
-            'data_nascimento_funcionario': data_nascimento_funcionario,
-            'cracha_do_funcionario': cracha
-        }
+
+    def pega_dados_funcionario(self):
+        layout = [
+            [sg.Text('Dados Funcionario')],
+            [sg.Text('Nome', size=(18, 1)), sg.InputText(key='nome_funcionario')],
+            [sg.Text('Data de Nascimento', size=(18, 1)), sg.InputText(key='data_nascimento_funcionario')],
+            [sg.Text('Cracha', size=(18, 1)), sg.InputText(key='cracha_do_funcionario')],
+            [sg.Submit('salvar'), sg.Cancel()]
+        ]
+        windows = sg.Window('Cadastro de Funcionario').Layout(layout)
+        button, values = windows.Read()
+        windows.close()
+        return button, values
 
 
-    def mostra_funcionario(self, dados_funcionario):
-        print(20 * '*')
-        print(f"Nome : {dados_funcionario['nome_funcionario']}")
-        print(
-            f"Data de Nascimento : {dados_funcionario['data_nascimento_funcionario']}")
-        print(f"Cracha : {dados_funcionario['numero_do_cracha']}")
-        print(20 * '*')
+    def altera_funcionario(self, funcionario):
+        layout = [
+            [sg.Text('Dados Funcionario')],
+            [sg.Text('Nome', size=(15, 1)), sg.InputText(funcionario.nome, key='nome_funcionario')],
+            [sg.Text('Data de Nascimento', size=(15, 1)), sg.InputText(funcionario.data_nascimento, key='data_nascimento_funcionario')],
+            [sg.Text('Cracha', size=(15, 1)), sg.InputText(funcionario.cracha, key='cracha_do_funcionario')],
+            [sg.Submit('salvar'), sg.Cancel()]
+        ]
+        windows = sg.Window('Cadastro de Funcionario').Layout(layout)
+        button, values = windows.Read()
+        windows.close()
+        return button, values
+
+
+    def mostra_funcionario(self, funcionario):
+        pass
 
     def reclama_funcionario(self):
         print(20 * '*')
