@@ -1,6 +1,7 @@
 import PySimpleGUI as sg
 
 class TelaFuncionarios():
+
     def abre_tela(self):
         sg.ChangeLookAndFeel('DarkTeal4')
         layout = [
@@ -14,7 +15,7 @@ class TelaFuncionarios():
             [sg.Radio('Retornar', "RD1", key='0')],
             [sg.Button('salvar'), sg.Cancel('Cancelar')]
         ]
-        windows = sg.Window('Sistema de livros').Layout(layout)
+        windows = sg.Window('Sistema de Funcionarios').Layout(layout)
         button,values = windows.Read()
         windows.close()
         return button, values
@@ -73,9 +74,11 @@ class TelaFuncionarios():
         print(20 * '*')
     
     def confirma_funcionario(self):
-        print(20 * '*')
+        sg.Popup('---------------Funcionario--------------', 'ALTERAÇAO FEITA COM SUCESSO')
+
+        '''print(20 * '*')
         print('ALTERAÇAO FEITA COM SUCESSO')
-        print(20 * '*')
+        print(20 * '*')'''
     
     def opcao_invalida(self):
         print(20 * '*')
