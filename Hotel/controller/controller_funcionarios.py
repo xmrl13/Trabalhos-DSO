@@ -30,10 +30,10 @@ class ControllerFuncionarios:
 
         if resposta != 'salvar':
             return
-        print('salvar confere')
+
         if numero_cracha == None:
             return
-        print('valor confere')
+
         for funcionario in self.__funcionario_dao.get_all():
             if funcionario.cracha == numero_cracha['cracha']:
                 resposta, funcionario_atualizado = self.__tela_funcionarios.altera_funcionario(funcionario)
@@ -45,8 +45,8 @@ class ControllerFuncionarios:
                 funcionario.data_nascimento = funcionario_atualizado['data_nascimento_funcionario']
                 funcionario.cracha = funcionario_atualizado['cracha_do_funcionario']
 
-                self.__funcionario_dao.add(funcionario)
                 self.__tela_funcionarios.confirma_funcionario()
+                self.__funcionario_dao.save()
 
                 return
         self.__tela_funcionarios.reclama_funcionario()

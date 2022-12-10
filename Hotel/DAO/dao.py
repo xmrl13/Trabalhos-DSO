@@ -38,3 +38,6 @@ class Dao(ABC):
     def get_all(self):
         return self.__cache.values()
 
+    def save(self):
+        self.__dump()
+
