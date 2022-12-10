@@ -42,10 +42,14 @@ class ControllerClientes:
                 cliente.cpf = cliente_atualizado['cpf_cliente']
                 cliente.email = cliente_atualizado['email_cliente']
                 cliente.telefone = cliente_atualizado['fone_cliente']
-                self.__cliente_dao.add(cliente_atualizado)
-                self.__tela_clientes.cliente_alterado()
-                return
-        self.__tela_clientes.cliente_encontrado()
+                self.__cliente_dao.add(
+                    Cliente(cliente_atualizado['nome_cliente'],
+                    cliente_atualizado['data_nascimento_cliente'],
+                    cliente_atualizado['cpf_cliente'],
+                    cliente_atualizado['email_cliente'],
+                    cliente_atualizado['fone_cliente']))
+                
+        self.__tela_clientes.cliente_alterado()      
     
     def excluir_cliente(self):
         if not self.__cliente_dao.get_all():
