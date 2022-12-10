@@ -1,19 +1,24 @@
 from model.andar import Andar
 from view.tela_andar import TelaAndar
+from DAO.andar_dao import AndarDao
 
 
 class ControllerAndar:
     def __init__(self, controller_principal):
         self.__tela_andar = TelaAndar()
         self.__controller_principal = controller_principal
-        self.__andar = []
+        self.__andar_dao = AndarDao()
+
 
     def inclui_andar(self):
         dados_andar = self.__tela_andar.inclui_andar()
         if dados_andar is None:
             return
         
+        andar
+        
         self.__andar.append(Andar(dados_andar))
+        self.__andar_dao.add(Andar())
 
     def add_quarto_no_andar(self):
         quartos = self.__controller_principal.retorna_quartos()

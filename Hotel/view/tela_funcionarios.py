@@ -62,34 +62,21 @@ class TelaFuncionarios():
 
 
     def mostra_funcionario(self, funcionario):
-        print(20 * '*')
-        print(funcionario.nome)
-        print(funcionario.data_nascimento)
-        print(funcionario.cracha)
-        print(20 * '*')
+        string = (f'{funcionario.nome} \n {funcionario.data_nascimento} \n {funcionario.cracha}' )
+        sg.Popup('             Funcionario             ', string)
 
     def reclama_funcionario(self):
-        print(20 * '*')
-        print('FUNCIONARIO NAO ENCONTRADO')
-        print(20 * '*')
+        sg.Popup('             Funcionario             ', 'FUNCIONARIO NAO ENCONTRADO')
     
     def confirma_funcionario(self):
-        sg.Popup('---------------Funcionario--------------', 'ALTERAÇAO FEITA COM SUCESSO')
-
-        '''print(20 * '*')
-        print('ALTERAÇAO FEITA COM SUCESSO')
-        print(20 * '*')'''
+        sg.Popup('             Funcionario             ', 'ALTERAÇAO FEITA COM SUCESSO')
     
     def opcao_invalida(self):
-        print(20 * '*')
-        print('POR FAVOR DIGITE UM VALOR NÚMERICO E DENTRO DO INTERVALO VÁLIDO!')
-        print(20 * '*')
+        sg.Popup('             Funcionario             ', 'POR FAVOR DIGITE UM VALOR NÚMERICO E DENTRO DO INTERVALO VÁLIDO!')
     
     def funcionario_exitente(self):
-        print(20 * '*')
-        print('Funcionario com mesmo numero de cracha já existente')
-        print(20 * '*')
+        sg.Popup('             Funcionario             ', 'Funcionario com mesmo numero de cracha já existente')
 
     def sem_funcionarios_cadastrados(self):
-        print('Sem funcionarios cadastrados!')
+        sg.Popup('             Funcionario             ', 'Sem funcionarios cadastrados!')
         
