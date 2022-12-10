@@ -27,7 +27,7 @@ class ControllerQuarto:
         self.__quarto_dao.add(quarto)
 
     def retorna_reservas(self, quarto):
-        if quarto in self.__quartos:
+        if quarto in self.__quarto_dao.get_all():
             return quarto.dias_reservados
 
     def excluir_quarto(self):
