@@ -28,15 +28,27 @@ class ControllerReserva:
         if resposta != 'salvar':
             return
 
+        nova_data_da_reserva = {
+            'ano_entrada': int(data_da_reserva['ano_entrada']),
+            'mes_entrada': int(data_da_reserva['mes_entrada']),
+            'dia_entrada': int(data_da_reserva['adia_entrada']),
+            'ano_saida': int(data_da_reserva['ano_saida']),
+            'mes_saida': int(data_da_reserva['mes_saida']),
+            'dia_saida': int(data_da_reserva['dia_saida']),
+
+        }
+
+
+
         entrada_reserva = datetime.datetime(
-            data_da_reserva['ano_entrada'],
-            data_da_reserva['mes_entrada'],
-            data_da_reserva['dia_entrada'])
+            nova_data_da_reserva['ano_entrada'],
+            nova_data_da_reserva['mes_entrada'],
+            nova_data_da_reserva['dia_entrada'])
 
         saida_reserva = datetime.datetime(
-            data_da_reserva['ano_saida'],
-            data_da_reserva['mes_saida'],
-            data_da_reserva['dia_saida'])
+            nova_data_da_reserva['ano_saida'],
+            nova_data_da_reserva['mes_saida'],
+            nova_data_da_reserva['dia_saida'])
         intervalo_reservado = datetimerange.DateTimeRange(entrada_reserva, saida_reserva)
 
         if not reservas:
