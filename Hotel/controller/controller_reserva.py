@@ -72,16 +72,29 @@ class ControllerReserva:
         #try:
         quarto = self.__controller_principal.controller_quarto.busca_quarto_por_numero()
         dias_reservados = self.__controller_principal.controller_quarto.retorna_reservas(quarto)
-        data_para_conferir = self.__tela_reserva.pega_data_da_reserva()
+        resposta, data_para_conferir = self.__tela_reserva.pega_data_da_reserva()
+        if resposta != 'salvar':
+            return
+
+        nova_data_da_reserva = {
+            'ano_entrada': int(data_para_conferir['ano_entrada']),
+            'mes_entrada': int(data_para_conferir['mes_entrada']),
+            'dia_entrada': int(data_para_conferir['dia_entrada']),
+            'ano_saida': int(data_para_conferir['ano_saida']),
+            'mes_saida': int(data_para_conferir['mes_saida']),
+            'dia_saida': int(data_para_conferir['dia_saida']),
+
+        }
+
         entrada_para_conferir = datetime.datetime(
-        data_para_conferir['ano_entrada'],
-        data_para_conferir['mes_entrada'],
-        data_para_conferir['dia_entrada'])
+        nova_data_da_reserva['ano_entrada'],
+        nova_data_da_reserva['mes_entrada'],
+        nova_data_da_reserva['dia_entrada'])
 
         saida_para_conferir = datetime.datetime(
-        data_para_conferir['ano_saida'],
-        data_para_conferir['mes_saida'],
-        data_para_conferir['dia_saida'])
+        nova_data_da_reserva['ano_saida'],
+        nova_data_da_reserva['mes_saida'],
+        nova_data_da_reserva['dia_saida'])
 
         intervalo_para_conferir = datetimerange.DateTimeRange(entrada_para_conferir, saida_para_conferir)
 
