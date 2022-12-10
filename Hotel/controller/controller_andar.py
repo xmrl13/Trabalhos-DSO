@@ -35,7 +35,7 @@ class ControllerAndar:
             andar.add_quarto(quarto)    
 
     def buscar_andar(self):
-        if not self.__andar:
+        if not self.__andar_dao.get_all():
             self.__tela_andar.sem_andar_cadastrado()
             return
 

@@ -52,7 +52,3 @@ class TelaReserva():
     def data_errada(self):
         sg.Popup('             Reserva             ', 'Data inexistente inserida')
     
-    def opcao_invalida(self):
-        print(20 * '*')
-        print('POR FAVOR DIGITE UM VALOR NÚMERICO E DENTRO DO INTERVALO VÁLIDO!')
-        print(20 * '*')
