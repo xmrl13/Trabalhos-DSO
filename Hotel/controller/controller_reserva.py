@@ -90,7 +90,7 @@ class ControllerReserva:
 
         try:
             while True:
-                resposta, dados = self.__tela_funcionarios.abre_tela()
+                resposta, dados = self.__tela_reserva.abre_tela()
 
                 if resposta != 'salvar':
                     self.retornar()

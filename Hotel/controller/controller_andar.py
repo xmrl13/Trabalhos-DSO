@@ -21,7 +21,7 @@ class ControllerAndar:
     def add_quarto_no_andar(self):
         quartos = self.__controller_principal.retorna_quartos()
         if not quartos:
-            self.__tela_andar.sem_andar_cadastrado()
+            self.__tela_andar.reclama_quartos()
             return
 
         quarto = self.__controller_principal.controller_quarto.busca_quarto_por_numero()
@@ -35,12 +35,12 @@ class ControllerAndar:
             andar.add_quarto(quarto)    
 
     def buscar_andar(self):
-        if not self.__andar_dao.get_all():
+        if not self.__andar_dao:
             self.__tela_andar.sem_andar_cadastrado()
             return
 
         andar_numero = self.__tela_andar.buscar_andar()
-        for andar in self.__andar:
+        for andar in self.__andar_dao.get_all():
             if andar.numero == andar_numero:
                 self.__tela_andar.mostra_andar(andar.numero)
                 if andar.quartos is None:
@@ -87,10 +87,10 @@ class ControllerAndar:
     def abre_tela(self):
         lista_opcoes = {1: self.inclui_andar, 2:self.add_quarto_no_andar , 3: self.excluir_andar,
                         4: self.lista_andar, 0: self.retornar}
-        #try:
-        while True:
-            opcao = self.__tela_andar.abre_tela()
-            lista_opcoes[opcao]()
-        #except Exception:
-            #self.__tela_andar.opcao_invalida()
-            #self.abre_tela()
+        try:
+            while True:
+                opcao = self.__tela_andar.abre_tela()
+                lista_opcoes[opcao]()
+        except Exception:
+            self.__tela_andar.opcao_invalida()
+            self.abre_tela()
