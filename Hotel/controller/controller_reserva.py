@@ -23,7 +23,11 @@ class ControllerReserva:
                 return
             reservas = self.__controller_principal.controller_quarto.retorna_reservas(quarto)
 
-            data_da_reserva = self.__tela_reserva.pega_data_da_reserva()
+            resposta, data_da_reserva = self.__tela_reserva.pega_data_da_reserva()
+
+            if resposta != 'salvar':
+                return
+
             entrada_reserva = datetime.datetime(
                 data_da_reserva['ano_entrada'],
                 data_da_reserva['mes_entrada'],
@@ -86,8 +90,19 @@ class ControllerReserva:
 
         try:
             while True:
-                opcao = self.__tela_reserva.abre_tela()
-                lista_opcoes[opcao]()
+                resposta, dados = self.__tela_funcionarios.abre_tela()
+
+                if resposta != 'salvar':
+                    self.retornar()
+
+                if dados['1']:
+                    lista_opcoes[1]()
+
+                if dados['2']:
+                    lista_opcoes[2]()
+
+                if dados['0']:
+                    lista_opcoes[0]()
 
         except Exception:
             self.__tela_reserva.opcao_invalida()

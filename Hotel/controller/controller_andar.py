@@ -14,11 +14,9 @@ class ControllerAndar:
         dados_andar = self.__tela_andar.inclui_andar()
         if dados_andar is None:
             return
-        
-        andar
-        
-        self.__andar.append(Andar(dados_andar))
-        self.__andar_dao.add(Andar())
+
+        andar_novo = Andar(dados_andar)
+        self.__andar_dao.add(andar_novo)
 
     def add_quarto_no_andar(self):
         quartos = self.__controller_principal.retorna_quartos()
@@ -56,23 +54,27 @@ class ControllerAndar:
         return None    
 
     def excluir_andar(self):
-        if not self.__andar:
+        if not self.__andar_dao.get_all():
             self.__tela_andar.sem_andar_cadastrado()
             return
         andar_a_verificar = int(self.__tela_andar.buscar_andar())
-        for andar in self.__andar:
+        if andar_a_verificar is None:
+            return
+
+        for andar in self.__andar_dao.get_all():
             if andar.numero == andar_a_verificar:
-                self.__andar.remove(andar)
+                self.__andar_dao.remove(andar.numero)
+                self.__tela_andar.andar_excluido()
                 return
 
         self.__tela_andar.reclama_andar()
 
     def lista_andar(self):
-        if not self.__andar:
+        if not self.__andar_dao.get_all():
             self.__tela_andar.sem_andar_cadastrado()
             return None
 
-        for andar in self.__andar:
+        for andar in self.__andar_dao.get_all():
             self.__tela_andar.mostra_andar(andar.numero)
 
             dados_andar = andar.quartos
@@ -85,10 +87,10 @@ class ControllerAndar:
     def abre_tela(self):
         lista_opcoes = {1: self.inclui_andar, 2:self.add_quarto_no_andar , 3: self.excluir_andar,
                         4: self.lista_andar, 0: self.retornar}
-        try:
-            while True:
-                opcao = self.__tela_andar.abre_tela()
-                lista_opcoes[opcao]()
-        except Exception:
-            self.__tela_andar.opcao_invalida()
-            self.abre_tela()
+        #try:
+        while True:
+            opcao = self.__tela_andar.abre_tela()
+            lista_opcoes[opcao]()
+        #except Exception:
+            #self.__tela_andar.opcao_invalida()
+            #self.abre_tela()

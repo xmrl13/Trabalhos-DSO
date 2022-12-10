@@ -7,10 +7,10 @@ class AndarDao(Dao):
 
     def add(self, andar: Andar):
         if isinstance(andar, Andar):
-            super.add(andar.numero, andar)
+            super().add(andar.numero, andar)
 
     def get(self, key):
         super().get(key)
 
     def remove(self, key):
-        return super().remove(key)
+        super().remove(key)

@@ -60,6 +60,11 @@ class TelaAndar:
         print('ANDAR SEM QUARTOS CADASTRADOS')
         print(20 * '*')
 
+    def andar_excluido(self):
+        print(20 * '*')
+        print('ANDAR EXCLUIDO')
+        print(20 * '*')
+
 
     def opcao_invalida(self):
         print(20 * '*')
