@@ -8,3 +8,9 @@ class ClienteDao(Dao):
     def add(self, cliente: Cliente):
         if isinstance(cliente, Cliente):
             super().add(cliente.cpf, cliente)
+
+    def get(self, key):
+        super().get(key)
+
+    def remove(self, key):
+        super().remove(key)
