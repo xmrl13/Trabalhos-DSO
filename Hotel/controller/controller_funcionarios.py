@@ -107,7 +107,7 @@ class ControllerFuncionarios:
             5: self.lista_funcionario,
             0: self.retornar
         }
-        #try:
+
         while True:
             resposta, dados = self.__tela_funcionarios.abre_tela()
 
@@ -131,9 +131,3 @@ class ControllerFuncionarios:
 
             if dados['0']:
                 lista_opcoes[0]()
-
-
-
-        '''except Exception:
-            self.__tela_funcionarios.opcao_invalida()
-            self.abre_tela()'''

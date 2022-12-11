@@ -61,11 +61,13 @@ class TelaQuarto:
     def sem_quartos_cadastrados(self):
         print('Sem quarto(s) cadastrado(s)!')
 
+    def quarto_com_reserva(self):
+        string = (f'Este quarto contem uma ou mais reservas, para excluir o quarto primeiro exclua as reservas!')
+        sg.Popup('----Quarto com reservas efetuadas!----', string)
+
     def quarto_excluido(self):
-        print(20 * '*')
-        print('Esse quarto pode conter resevas efetuadas, lembre-se de consultar e se necessário excluir a reserva.')
-        print('Quarto excluido com sucessso')
-        print(20 * '*')
+        string = (f'Quarto excluido com sucesso!')
+        sg.Popup('---Quarto excluido---', string)
 
     def mostra_quartos(self, quarto, dados_quarto):
         string = (f'Número do quarto: {quarto.numero_do_quarto} \nValor da diária: {quarto.valor_diaria}R$ \nDias reservados: {quarto.dias_reservados}')

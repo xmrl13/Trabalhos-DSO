@@ -41,10 +41,6 @@ class ControllerPrincipal:
     
     def pega_quartos(self):
         return self.controller_quarto.busca_quarto_por_numero()
-    '''
-    def mostra_quarto(self, quarto):
-        return self.controller_quarto.mostra_quartos(quarto)
-    '''
 
     def inicializa_funcionario(self):
         self.__controller_funcionarios.abre_tela()

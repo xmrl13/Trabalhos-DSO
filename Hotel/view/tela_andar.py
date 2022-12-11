@@ -21,12 +21,12 @@ class TelaAndar:
         if not verifica_numero_andar:
             print('DIGITE APENAS NÚMEROS PARA O NÚMERO DO ANDAR!')
             return None
-        numero_andar = int(numero_andar)
+        numero_andar = numero_andar
         return numero_andar
 
     def buscar_andar(self):
         print(20 * '*')
-        andar = int(input("Insira o numero do andar que deseja: "))
+        andar = input("Insira o numero do andar que deseja: ")
         print(20 * '*')
         return andar
 
@@ -36,7 +36,10 @@ class TelaAndar:
     def mostra_andar(self, andar):
         string = (f'Número do andar: {andar.numero}°')
         sg.Popup('-------Andares cadastrados no Sistema-------', string)
-   
+        for dados in andar.quartos:
+            string2 = (f'Numeros dos quartos cadastrados no andar: {dados.numero_do_quarto}')
+            sg.Popup('-------Andares cadastrados-------', string2)
+
 
     def reclama_quartos(self):
         print(20 * '*')

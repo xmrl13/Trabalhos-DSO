@@ -19,21 +19,27 @@ class ControllerAndar:
         self.__andar_dao.add(andar_novo)
 
     def add_quarto_no_andar(self):
-        quartos = self.__controller_principal.retorna_quartos()
+        quartos = self.__controller_principal.controller_quarto.retorna_quartos()
         if not quartos:
             self.__tela_andar.reclama_quartos()
-            return
+            return     
 
         quarto = self.__controller_principal.controller_quarto.busca_quarto_por_numero()
+
         if quarto is None:
             return
+            
         
         andar = self.buscar_andar()
-        if not andar:
-            return
-        else:
-            andar.add_quarto(quarto)
-            self.__andar_dao.save()    
+        
+        
+        for quarto_a_verificar in andar.retornar_todos_os_quartos():
+            if quarto.numero_do_quarto == quarto_a_verificar.numero_do_quarto:
+                
+                return
+
+        andar.add_quarto(quarto)
+        self.__andar_dao.save()
 
     def buscar_andar(self):
         if not self.__andar_dao:
@@ -41,13 +47,14 @@ class ControllerAndar:
             return
 
         andar_numero = self.__tela_andar.buscar_andar()
+
+
         for andar in self.__andar_dao.get_all():
             if andar.numero == andar_numero:
                 self.__tela_andar.mostra_andar(andar)
-                if andar.quartos is None:
-                    self.__tela_andar.reclama_andar_sem_quarto()
-                    return andar
-
+                return andar
+ 
+ 
         self.__tela_andar.reclama_andar()
         return None    
 
@@ -85,6 +92,7 @@ class ControllerAndar:
 
         for andar in self.__andar_dao.get_all():
             self.__tela_andar.mostra_andar(andar)
+
     
 
     def retornar(self):
@@ -94,12 +102,12 @@ class ControllerAndar:
         lista_opcoes = {1: self.inclui_andar, 2:self.add_quarto_no_andar , 3: self.excluir_andar,
                         4: self.lista_andar, 0: self.retornar}
 
-        #try:
-        while True:
-            opcao = self.__tela_andar.abre_tela()
-            lista_opcoes[opcao]()
+        try:
+            while True:
+                opcao = self.__tela_andar.abre_tela()
+                lista_opcoes[opcao]()
         
 
-        '''except Exception:
+        except Exception:
             self.__tela_andar.opcao_invalida()
-            self.abre_tela()'''
+            self.abre_tela()

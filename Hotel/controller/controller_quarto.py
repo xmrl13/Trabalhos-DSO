@@ -37,6 +37,9 @@ class ControllerQuarto:
 
         quarto_recebido = self.__tela_quarto.pega_quarto_por_numero()
         for quarto in self.__quarto_dao.get_all():
+            if len(quarto.dias_reservados) != 0:
+                self.__tela_quarto.quarto_com_reserva()
+                return
             if quarto.numero_do_quarto == quarto_recebido:
                 self.__quarto_dao.remove(quarto.numero_do_quarto)
                 self.__controller_principal.controller_andar.excluir_quarto_do_andar(quarto)
@@ -92,12 +95,10 @@ class ControllerQuarto:
             4: self.lista_quartos,
             0: self.retornar
         }
-        #try:
-        while True:
-            lista_opcoes[self.__tela_quarto.abre_tela()]()
+        try:
+            while True:
+                lista_opcoes[self.__tela_quarto.abre_tela()]()
 
-        #except Exception:
-            #self.__tela_quarto.opcao_invalida()
-            #self.abre_tela()
-
-
+        except Exception:
+            self.__tela_quarto.opcao_invalida()
+            self.abre_tela()
