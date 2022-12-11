@@ -75,6 +75,7 @@ class ControllerQuarto:
 
     def adiciona_reserva(self, quarto, intervalo_reservado):
         quarto.adiciona_reserva(intervalo_reservado)
+        self.__quarto_dao.save()
 
     def retornar(self):
         self.__controller_principal.abre_tela()
