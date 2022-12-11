@@ -1,4 +1,4 @@
-
+import PySimpleGUI as sg
 
 class TelaCliente:
 
@@ -58,14 +58,9 @@ class TelaCliente:
             
         return cpf_cliente
 
-    def mostra_cliente(self, dados_cliente):
-        print(20 * '*')
-        print(f"Nome : {dados_cliente['nome_cliente']}")
-        print(f"Data de Nascimento : {dados_cliente['data_nascimento_cliente']}")
-        print(f"CPF : {dados_cliente['cpf_cliente']}")
-        print(f"Email : {dados_cliente['email_cliente']}")
-        print(f"Fone : {dados_cliente['fone_cliente']}")
-        print(20 * '*')
+    def mostra_cliente(self, cliente):
+        string = (f'Nome do Cliente: {cliente.nome} \nData de Nascimento: {cliente.data_nascimento} \nCPF: {cliente.cpf} \nEmail: {cliente.email} \nTelefone: {cliente.telefone}')
+        sg.Popup('-------Clientes cadastrados no sistema-------', string)
     
     def cliente_alterado(self):
         print(20 * '*')

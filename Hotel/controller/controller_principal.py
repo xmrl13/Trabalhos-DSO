@@ -41,10 +41,10 @@ class ControllerPrincipal:
     
     def pega_quartos(self):
         return self.controller_quarto.busca_quarto_por_numero()
-
+    '''
     def mostra_quarto(self, quarto):
         return self.controller_quarto.mostra_quartos(quarto)
-
+    '''
 
     def inicializa_funcionario(self):
         self.__controller_funcionarios.abre_tela()
@@ -69,16 +69,9 @@ class ControllerPrincipal:
         sys.exit(1)
     
     def relatorio_geral(self):
-        self.__tela_principal.relatorio_funcionarios()
         self.__controller_funcionarios.lista_funcionario()
-
-        self.__tela_principal.relatorio_clientes()
         self.__controller_clientes.lista_cliente()
-
-        self.__tela_principal.relatorio_quarto()
         self.__controller_quarto.lista_quartos()
-
-        self.__tela_principal.relatorio_andar()
         self.__controller_andar.lista_andar()
 
     def abre_tela(self):

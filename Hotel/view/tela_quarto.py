@@ -1,4 +1,4 @@
-
+import PySimpleGUI as sg
 class TelaQuarto:
 
     def abre_tela(self):
@@ -63,22 +63,17 @@ class TelaQuarto:
 
     def quarto_excluido(self):
         print(20 * '*')
+        print('Esse quarto pode conter resevas efetuadas, lembre-se de consultar e se necessário excluir a reserva.')
         print('Quarto excluido com sucessso')
         print(20 * '*')
 
-    def mostra_quartos(self, dados_quarto):
-        print(20 * '*')
-        print(f"Número do quarto: {dados_quarto['numero_do_quarto']}")
-        print(f"Valor da diária: {dados_quarto['valor_diaria']:.2f}'R$'")
-        print(5 * '*', 'Reservas', 5 * '*')
-        if not dados_quarto['dias_reservados']:
-            print('Sem reservas cadastradas para esse quarto')
-        else:
-            print(f"Dias Reservados: {dados_quarto['dias_reservados']}")
-        print(5 * '*', 'Mobilias', 5 * '*')
-        for dados_mobilia in dados_quarto['mobilias']:
-            print(f"Mobila: {dados_mobilia.descricao}, quantidade: {dados_mobilia.quantidade}")
-
+    def mostra_quartos(self, quarto, dados_quarto):
+        string = (f'Número do quarto: {quarto.numero_do_quarto} \nValor da diária: {quarto.valor_diaria}R$ \nDias reservados: {quarto.dias_reservados}')
+        sg.Popup('-------Quartos cadastrados no Sistema-------', string)
+        for dados in dados_quarto['mobilias']:
+            string2 = (f'Mobilias do quarto n°{quarto.numero_do_quarto} \nDescrição da mobilia: {dados.descricao} \nQuantidade: {dados.quantidade}')
+            sg.Popup('--------Mobilias--------', string2)
+   
     def opcao_invalida(self):
         print(20 * '*')
         print('POR FAVOR DIGITE UM VALOR NUMERICO E DENTRO DO INTERVALO VÁLIDO!')

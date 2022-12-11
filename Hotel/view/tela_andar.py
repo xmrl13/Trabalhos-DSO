@@ -1,4 +1,4 @@
-
+import PySimpleGUI as sg
 class TelaAndar:
 
     def abre_tela(self):
@@ -34,9 +34,9 @@ class TelaAndar:
         print('Sem nenhum andar cadastrados!')
 
     def mostra_andar(self, andar):
-        print(20 * '*')
-        print(f"Andar:{andar}º")
-
+        string = (f'Número do andar: {andar.numero}°')
+        sg.Popup('-------Andares cadastrados no Sistema-------', string)
+   
 
     def reclama_quartos(self):
         print(20 * '*')

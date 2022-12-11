@@ -43,14 +43,11 @@ class ControllerAndar:
         andar_numero = self.__tela_andar.buscar_andar()
         for andar in self.__andar_dao.get_all():
             if andar.numero == andar_numero:
-                self.__tela_andar.mostra_andar(andar.numero)
+                self.__tela_andar.mostra_andar(andar)
                 if andar.quartos is None:
                     self.__tela_andar.reclama_andar_sem_quarto()
                     return andar
 
-                for quartos in andar.quartos:
-                    self.__controller_principal.controller_quarto.mostra_quartos(quartos)
-                return andar
         self.__tela_andar.reclama_andar()
         return None    
 
@@ -87,11 +84,7 @@ class ControllerAndar:
             return None
 
         for andar in self.__andar_dao.get_all():
-            self.__tela_andar.mostra_andar(andar.numero)
-
-            dados_andar = andar.quartos
-            for quarto in dados_andar:
-                    self.__controller_principal.mostra_quarto(quarto)
+            self.__tela_andar.mostra_andar(andar)
     
 
     def retornar(self):

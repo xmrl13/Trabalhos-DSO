@@ -54,13 +54,10 @@ class ControllerQuarto:
         
         for quarto in self.__quarto_dao.get_all():
             if numero_do_quarto == quarto.numero_do_quarto:
-                quarto_completo = {
-                    'numero_do_quarto': quarto.numero_do_quarto,
-                    'valor_diaria': quarto.valor_diaria,
+                dados_quarto = {
                     'mobilias': quarto.mobilias,
-                    'dias_reservados': quarto.dias_reservados
                 }
-                self.__tela_quarto.mostra_quartos(quarto_completo)
+                self.__tela_quarto.mostra_quartos(quarto, dados_quarto)
                 return quarto
         self.__tela_quarto.sem_quartos_cadastrados()
 
@@ -69,14 +66,12 @@ class ControllerQuarto:
             self.__tela_quarto.sem_quartos_cadastrados()
             return None
 
-        for quarto in self.__quarto_dao.get_all():
+        for quarto in self.__quarto_dao.get_all():            
             dados_quarto = {
                 'numero_do_quarto': quarto.numero_do_quarto,
-                'valor_diaria': quarto.valor_diaria,
-                'dias_reservados': quarto.dias_reservados,
-                'mobilias': quarto.mobilias,
+                'mobilias': quarto.mobilias
             }
-            self.__tela_quarto.mostra_quartos(dados_quarto)
+            self.__tela_quarto.mostra_quartos(quarto, dados_quarto)
 
     def adiciona_reserva(self, quarto, intervalo_reservado):
         quarto.adiciona_reserva(intervalo_reservado)
@@ -86,16 +81,6 @@ class ControllerQuarto:
 
     def retorna_quartos(self):
         return self.__quarto_dao.get_all()
-
-    def mostra_quartos(self, quarto):
-        quarto_completo = {
-            'numero_do_quarto':quarto.numero_do_quarto,
-            'valor_diaria':quarto.valor_diaria,
-            'mobilias':quarto.mobilias,
-            'dias_reservados': quarto.dias_reservados
-        }
-        self.__tela_quarto.mostra_quartos(quarto_completo)
-        
 
     def abre_tela(self):
         

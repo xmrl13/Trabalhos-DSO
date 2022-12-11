@@ -70,15 +70,8 @@ class ControllerClientes:
             
         for cliente in self.__cliente_dao.get_all():
             if cpf == cliente.cpf:
-                dados_cliente = {
-                    'nome_cliente': cliente.nome,
-                    'data_nascimento_cliente': cliente.data_nascimento,
-                    'cpf_cliente': cliente.cpf,
-                    'email_cliente': cliente.email,
-                    'fone_cliente': cliente.telefone
-                    }
                 self.__tela_clientes.cliente_encontrado()
-                self.__tela_clientes.mostra_cliente(dados_cliente)
+                self.__tela_clientes.mostra_cliente(cliente)
                 return cliente
             
         self.__tela_clientes.cliente_não_encontrado()
@@ -92,6 +85,8 @@ class ControllerClientes:
             return None
 
         for cliente in self.__cliente_dao.get_all():
+            self.__tela_clientes.mostra_cliente(cliente)
+            '''
                 dados_cliente = {
             'data_nascimento_cliente': cliente.data_nascimento,
             'nome_cliente': cliente.nome,
@@ -100,7 +95,8 @@ class ControllerClientes:
             'fone_cliente': cliente.telefone
         }
                 self.__tela_clientes.mostra_cliente(dados_cliente)
-    
+            '''
+            
     def abre_tela(self):
         lista_opcoes = {1: self.inclui_cliente, 2: self.altera_cliente, 3: self.excluir_cliente,
          4: self.busca_cliente_por_cpf, 5: self.lista_cliente, 0: self.retornar}
