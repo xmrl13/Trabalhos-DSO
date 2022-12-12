@@ -62,7 +62,7 @@ class ControllerAndar:
         if not self.__andar_dao.get_all():
             self.__tela_andar.sem_andar_cadastrado()
             return
-        andar_a_verificar = int(self.__tela_andar.buscar_andar())
+        andar_a_verificar = self.__tela_andar.buscar_andar()
         if andar_a_verificar is None:
             return
 
